@@ -4,10 +4,17 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import cookieParser from 'cookie-parser';
 
 import { AppModule } from './components/app/app.module';
+import { GlobalService } from './components/global/global.service';
+import { ValidationPipe } from '@nestjs/common';
+import { GlobalExceptionFilter } from './common/filters/exception.filter';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const configService = app.get(ConfigService);
+  const globalService = app.get(GlobalService);
+
+  app.useGlobalPipes(new ValidationPipe());
+  app.useGlobalFilters(new GlobalExceptionFilter(globalService));
 
   app.enableCors({
     origin: configService.get<string>('CORS_ORIGIN') || 'http://localhost:3000',

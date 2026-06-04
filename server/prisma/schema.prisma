@@ -13,65 +13,40 @@ datasource db {
   provider = "postgresql"
 }
 
-model User {
+model Users {
   id            String    @id @default(cuid())
-  name          String
+  name          String    @unique
   email         String
-  emailVerified Boolean   @default(false)
-  image         String?
+  password      String
+  role          Role      @default(USER)
+
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
-  sessions      Session[]
-  accounts      Account[]
-
-  @@unique([email])
-  @@map("user")
 }
 
-model Session {
-  id        String   @id @default(cuid())
-  expiresAt DateTime
-  token     String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  ipAddress String?
-  userAgent String?
-  userId    String
-  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+model ErrorLog {
+  id String @id @default(cuid())
+  level String
+  name String
+  message String
+  stack String?
+  context String?
 
-  @@unique([token])
-  @@index([userId])
-  @@map("session")
+  timestamp DateTime @default(now())
 }
 
-model Account {
-  id                    String    @id @default(cuid())
-  accountId             String
-  providerId            String
-  userId                String
-  user                  User      @relation(fields: [userId], references: [id], onDelete: Cascade)
-  accessToken           String?
-  refreshToken          String?
-  idToken               String?
-  accessTokenExpiresAt  DateTime?
-  refreshTokenExpiresAt DateTime?
-  scope                 String?
-  password              String?
-  createdAt             DateTime  @default(now())
-  updatedAt             DateTime  @updatedAt
+model Product {
+  id          String   @id @default(cuid())
+  name        String
+  description String?
+  price       Decimal  @db.Decimal(10,2)
+  stock       Int      @default(0)
 
-  @@index([userId])
-  @@map("account")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
 
-model Verification {
-  id         String   @id @default(cuid())
-  identifier String
-  value      String
-  expiresAt  DateTime
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
-
-  @@index([identifier])
-  @@map("verification")
+enum Role {
+  USER
+  ADMIN
 }
