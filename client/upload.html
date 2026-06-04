@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Upload Goods</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav>
+    <h2>CloudMart</h2>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="upload.html">Upload Goods</a>
+      <a href="signin.html">Sign In</a>
+    </div>
+  </nav>
+
+  <section class="upload-section">
+    <div class="upload-box">
+      <h2>Upload New Product</h2>
+
+      <form id="uploadForm">
+        <input type="text" id="productName" placeholder="Product Name" required>
+        <input type="number" id="productPrice" placeholder="Product Price" required>
+        <textarea id="productDescription" placeholder="Product Description" required></textarea>
+        <input type="file" id="productImage" accept="image/*" required>
+
+        <button type="submit">Upload Product</button>
+      </form>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
