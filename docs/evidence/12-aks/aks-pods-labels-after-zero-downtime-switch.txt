@@ -1,0 +1,6 @@
+NAME                                 READY   STATUS    RESTARTS   AGE   LABELS
+ecommerce-blue-75fbc9b6cc-cl7sx      1/1     Running   0          89m   app=ecommerce,pod-template-hash=75fbc9b6cc,version=blue
+ecommerce-blue-75fbc9b6cc-jqvfb      1/1     Running   0          89m   app=ecommerce,pod-template-hash=75fbc9b6cc,version=blue
+ecommerce-green-956f89f4b-hdqth      1/1     Running   0          89m   app=ecommerce,pod-template-hash=956f89f4b,version=green
+ecommerce-green-956f89f4b-wglbq      1/1     Running   0          89m   app=ecommerce,pod-template-hash=956f89f4b,version=green
+ecommerce-postgres-775bdd576-9t6kz   1/1     Running   0          90m   app=ecommerce-postgres,pod-template-hash=775bdd576

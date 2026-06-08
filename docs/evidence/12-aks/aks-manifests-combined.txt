@@ -1,0 +1,167 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ecommerce-blue
+  namespace: ecommerce-bluegreen
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ecommerce
+      version: blue
+  template:
+    metadata:
+      labels:
+        app: ecommerce
+        version: blue
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/path: "/api/v1/metrics"
+        prometheus.io/port: "3000"
+    spec:
+      containers:
+        - name: ecommerce-server
+          image: acrecommercebg8070.azurecr.io/ecommerce-app:v1.0.0-blue
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 3000
+          env:
+            - name: DATABASE_URL
+              value: "postgresql://postgres:postgres@postgres-service.ecommerce-bluegreen.svc.cluster.local:5432/ecommerce_dev"
+            - name: JWT_SECRET
+              value: "aks-dev-secret-change-later"
+            - name: PORT
+              value: "3000"
+            - name: APP_NAME
+              value: "ecommerce-app"
+            - name: APP_VERSION
+              value: "v1.0.0"
+            - name: APP_ENV
+              value: "blue"
+          readinessProbe:
+            httpGet:
+              path: /api/v1/health/readiness
+              port: 3000
+            initialDelaySeconds: 20
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /api/v1/health/liveness
+              port: 3000
+            initialDelaySeconds: 40
+            periodSeconds: 20
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ecommerce-green
+  namespace: ecommerce-bluegreen
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ecommerce
+      version: green
+  template:
+    metadata:
+      labels:
+        app: ecommerce
+        version: green
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/path: "/api/v1/metrics"
+        prometheus.io/port: "3000"
+    spec:
+      containers:
+        - name: ecommerce-server
+          image: acrecommercebg8070.azurecr.io/ecommerce-app:v2.0.0-green
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 3000
+          env:
+            - name: DATABASE_URL
+              value: "postgresql://postgres:postgres@postgres-service.ecommerce-bluegreen.svc.cluster.local:5432/ecommerce_dev"
+            - name: JWT_SECRET
+              value: "aks-dev-secret-change-later"
+            - name: PORT
+              value: "3000"
+            - name: APP_NAME
+              value: "ecommerce-app"
+            - name: APP_VERSION
+              value: "v2.0.0"
+            - name: APP_ENV
+              value: "green"
+          readinessProbe:
+            httpGet:
+              path: /api/v1/health/readiness
+              port: 3000
+            initialDelaySeconds: 20
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /api/v1/health/liveness
+              port: 3000
+            initialDelaySeconds: 40
+            periodSeconds: 20
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ecommerce-bluegreen
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ecommerce-postgres
+  namespace: ecommerce-bluegreen
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ecommerce-postgres
+  template:
+    metadata:
+      labels:
+        app: ecommerce-postgres
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:16-alpine
+          ports:
+            - containerPort: 5432
+          env:
+            - name: POSTGRES_USER
+              value: "postgres"
+            - name: POSTGRES_PASSWORD
+              value: "postgres"
+            - name: POSTGRES_DB
+              value: "ecommerce_dev"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres-service
+  namespace: ecommerce-bluegreen
+spec:
+  type: ClusterIP
+  selector:
+    app: ecommerce-postgres
+  ports:
+    - name: postgres
+      port: 5432
+      targetPort: 5432
+apiVersion: v1
+kind: Service
+metadata:
+  name: ecommerce-service
+  namespace: ecommerce-bluegreen
+  labels:
+    app: ecommerce
+spec:
+  type: ClusterIP
+  selector:
+    app: ecommerce
+    version: blue
+  ports:
+    - name: http
+      port: 80
+      targetPort: 3000

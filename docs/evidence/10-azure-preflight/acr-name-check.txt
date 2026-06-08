@@ -1,0 +1,6 @@
+{
+  "availableLoginServerName": "acrecommercebg8070.azurecr.io",
+  "message": null,
+  "nameAvailable": true,
+  "reason": null
+}

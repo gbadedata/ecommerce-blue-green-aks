@@ -1,0 +1,245 @@
+{
+  "aadProfile": null,
+  "addonProfiles": null,
+  "agentPoolProfiles": [
+    {
+      "artifactStreamingProfile": null,
+      "availabilityZones": null,
+      "capacityReservationGroupId": null,
+      "count": 2,
+      "creationData": null,
+      "currentOrchestratorVersion": "1.34.8",
+      "eTag": "e77558b3-8c3b-4683-ae13-7217f293ca29",
+      "enableAutoScaling": false,
+      "enableEncryptionAtHost": false,
+      "enableFips": false,
+      "enableNodePublicIp": false,
+      "enableUltraSsd": false,
+      "gatewayProfile": null,
+      "gpuInstanceProfile": null,
+      "gpuProfile": null,
+      "hostGroupId": null,
+      "kubeletConfig": null,
+      "kubeletDiskType": "OS",
+      "linuxOsConfig": null,
+      "localDnsProfile": null,
+      "maxCount": null,
+      "maxPods": 250,
+      "messageOfTheDay": null,
+      "minCount": null,
+      "mode": "System",
+      "name": "nodepool1",
+      "networkProfile": null,
+      "nodeImageVersion": "AKSUbuntu-2204gen2containerd-202605.27.0",
+      "nodeLabels": null,
+      "nodePublicIpPrefixId": null,
+      "nodeTaints": null,
+      "orchestratorVersion": "1.34",
+      "osDiskSizeGb": 128,
+      "osDiskType": "Managed",
+      "osSku": "Ubuntu",
+      "osType": "Linux",
+      "podIpAllocationMode": null,
+      "podSubnetId": null,
+      "powerState": {
+        "code": "Running"
+      },
+      "provisioningState": "Succeeded",
+      "proximityPlacementGroupId": null,
+      "scaleDownMode": "Delete",
+      "scaleSetEvictionPolicy": null,
+      "scaleSetPriority": null,
+      "securityProfile": {
+        "enableSecureBoot": false,
+        "enableVtpm": false,
+        "sshAccess": null
+      },
+      "spotMaxPrice": null,
+      "status": null,
+      "tags": null,
+      "type": "VirtualMachineScaleSets",
+      "upgradeSettings": {
+        "drainTimeoutInMinutes": null,
+        "maxSurge": "10%",
+        "maxUnavailable": "0",
+        "nodeSoakDurationInMinutes": null,
+        "undrainableNodeBehavior": null
+      },
+      "virtualMachineNodesStatus": null,
+      "virtualMachinesProfile": null,
+      "vmSize": "standard_d2lds_v6",
+      "vnetSubnetId": null,
+      "windowsProfile": null,
+      "workloadRuntime": null
+    }
+  ],
+  "aiToolchainOperatorProfile": null,
+  "apiServerAccessProfile": null,
+  "autoScalerProfile": null,
+  "autoUpgradeProfile": {
+    "nodeOsUpgradeChannel": "NodeImage",
+    "upgradeChannel": null
+  },
+  "azureMonitorProfile": null,
+  "azurePortalFqdn": "aks-ecomme-rg-ecommerce-blu-c89282-g397fpu6.portal.hcp.uksouth.azmk8s.io",
+  "bootstrapProfile": {
+    "artifactSource": "Direct",
+    "containerRegistryId": null
+  },
+  "currentKubernetesVersion": "1.34.8",
+  "disableLocalAccounts": false,
+  "diskEncryptionSetId": null,
+  "dnsPrefix": "aks-ecomme-rg-ecommerce-blu-c89282",
+  "eTag": "c60df28b-5b2e-4d33-b936-129a51950ba6",
+  "enableRbac": true,
+  "extendedLocation": null,
+  "fqdn": "aks-ecomme-rg-ecommerce-blu-c89282-g397fpu6.hcp.uksouth.azmk8s.io",
+  "fqdnSubdomain": null,
+  "hostedSystemProfile": {
+    "enabled": false,
+    "nodeSubnetId": null,
+    "systemNodeSubnetId": null
+  },
+  "httpProxyConfig": null,
+  "id": "/subscriptions/c8928261-3c0c-4e98-bbc6-9ba70d318285/resourcegroups/rg-ecommerce-bluegreen-dev/providers/Microsoft.ContainerService/managedClusters/aks-ecommerce-bluegreen-dev",
+  "identity": {
+    "delegatedResources": null,
+    "principalId": "e9b2ddc2-8519-4650-ae6c-825d960b7d70",
+    "tenantId": "284fcab9-b353-44fb-8507-c7a3b277c19e",
+    "type": "SystemAssigned",
+    "userAssignedIdentities": null
+  },
+  "identityProfile": {
+    "kubeletidentity": {
+      "clientId": "a057e608-1cd9-4cc7-b089-109face30520",
+      "objectId": "72651cc5-fb8b-41bb-8447-a184d2144844",
+      "resourceId": "/subscriptions/c8928261-3c0c-4e98-bbc6-9ba70d318285/resourcegroups/MC_rg-ecommerce-bluegreen-dev_aks-ecommerce-bluegreen-dev_uksouth/providers/Microsoft.ManagedIdentity/userAssignedIdentities/aks-ecommerce-bluegreen-dev-agentpool"
+    }
+  },
+  "ingressProfile": null,
+  "kind": "Base",
+  "kubernetesVersion": "1.34",
+  "linuxProfile": {
+    "adminUsername": "azureuser",
+    "ssh": {
+      "publicKeys": [
+        {
+          "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC+MTzuK0A0F88YMbSSu6HpuEw+ugm4iAROB9EPA9AH9ZODxjH4yJVk2QqTwr6ycUl07iKzTFB3nL5lDaGdBy39PKf3URclvsv33mKtsEAGLMghlqKHIrmYnc+f9Af8F17wdrp+qUnC6tgZmPUpET5CWX6pcYrDkQh8Ca1xKGmzpam8VjLs77mVuaiYQNWfnSeCRZ6Fhq1SFi6yGu0FSFtH8DajlS40oDW7QIUTFAfYPdZIpoIP8GKr1s6q3v8wLC0K6WmvdfIM9gDTyKMCovzRvloJSSYmV1Wy4DVnbptRdwr2S2osxBbKTqWehsL5UM6wKnNDjFvd/wsPsn9zw3Tj"
+        }
+      ]
+    }
+  },
+  "location": "uksouth",
+  "maxAgentPools": 100,
+  "metricsProfile": {
+    "costAnalysis": {
+      "enabled": false
+    }
+  },
+  "name": "aks-ecommerce-bluegreen-dev",
+  "networkProfile": {
+    "advancedNetworking": null,
+    "dnsServiceIp": "10.0.0.10",
+    "ipFamilies": [
+      "IPv4"
+    ],
+    "loadBalancerProfile": {
+      "allocatedOutboundPorts": null,
+      "backendPoolType": "nodeIPConfiguration",
+      "effectiveOutboundIPs": [
+        {
+          "id": "/subscriptions/c8928261-3c0c-4e98-bbc6-9ba70d318285/resourceGroups/MC_rg-ecommerce-bluegreen-dev_aks-ecommerce-bluegreen-dev_uksouth/providers/Microsoft.Network/publicIPAddresses/d645ae3a-5f35-481b-9cae-5aab8662ebd8",
+          "resourceGroup": "MC_rg-ecommerce-bluegreen-dev_aks-ecommerce-bluegreen-dev_uksouth"
+        }
+      ],
+      "enableMultipleStandardLoadBalancers": null,
+      "idleTimeoutInMinutes": null,
+      "managedOutboundIPs": {
+        "count": 1,
+        "countIpv6": null
+      },
+      "outboundIPs": null,
+      "outboundIpPrefixes": null
+    },
+    "loadBalancerSku": "standard",
+    "natGatewayProfile": null,
+    "networkDataplane": "azure",
+    "networkMode": null,
+    "networkPlugin": "azure",
+    "networkPluginMode": "overlay",
+    "networkPolicy": "none",
+    "outboundType": "loadBalancer",
+    "podCidr": "10.244.0.0/16",
+    "podCidrs": [
+      "10.244.0.0/16"
+    ],
+    "serviceCidr": "10.0.0.0/16",
+    "serviceCidrs": [
+      "10.0.0.0/16"
+    ],
+    "staticEgressGatewayProfile": null
+  },
+  "nodeProvisioningProfile": {
+    "defaultNodePools": "Auto",
+    "mode": "Manual"
+  },
+  "nodeResourceGroup": "MC_rg-ecommerce-bluegreen-dev_aks-ecommerce-bluegreen-dev_uksouth",
+  "nodeResourceGroupProfile": null,
+  "oidcIssuerProfile": {
+    "enabled": true,
+    "issuerUrl": "https://uksouth.oic.prod-aks.azure.com/284fcab9-b353-44fb-8507-c7a3b277c19e/2371e089-51c3-4ee1-8c9b-f7527ebc980f/"
+  },
+  "podIdentityProfile": null,
+  "powerState": {
+    "code": "Running"
+  },
+  "privateFqdn": null,
+  "privateLinkResources": null,
+  "provisioningState": "Succeeded",
+  "publicNetworkAccess": null,
+  "resourceGroup": "rg-ecommerce-bluegreen-dev",
+  "resourceUid": "6a272b08d8150b00019e30f0",
+  "securityProfile": {
+    "azureKeyVaultKms": null,
+    "customCaTrustCertificates": null,
+    "defender": null,
+    "imageCleaner": null,
+    "workloadIdentity": null
+  },
+  "serviceMeshProfile": null,
+  "servicePrincipalProfile": {
+    "clientId": "msi",
+    "secret": null
+  },
+  "sku": {
+    "name": "Base",
+    "tier": "Free"
+  },
+  "status": null,
+  "storageProfile": {
+    "blobCsiDriver": null,
+    "diskCsiDriver": {
+      "enabled": true
+    },
+    "fileCsiDriver": {
+      "enabled": true
+    },
+    "snapshotController": {
+      "enabled": true
+    }
+  },
+  "supportPlan": "KubernetesOfficial",
+  "systemData": null,
+  "tags": {
+    "environment": "dev",
+    "owner": "gbadedata",
+    "project": "ecommerce-bluegreen"
+  },
+  "type": "Microsoft.ContainerService/ManagedClusters",
+  "upgradeSettings": null,
+  "windowsProfile": null,
+  "workloadAutoScalerProfile": {
+    "keda": null,
+    "verticalPodAutoscaler": null
+  }
+}

@@ -1,0 +1,2 @@
+NAME                                 READY   STATUS    RESTARTS   AGE   IP             NODE                                NOMINATED NODE   READINESS GATES
+ecommerce-postgres-775bdd576-9t6kz   1/1     Running   0          46s   10.244.0.162   aks-nodepool1-35250949-vmss000000   <none>           <none>

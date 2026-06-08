@@ -1,0 +1,12 @@
+AKS creation attempt failed because Standard_B2s is not allowed in this subscription in the uksouth region.
+
+Original requested node size:
+Standard_B2s
+
+Azure returned BadRequest and provided the list of allowed VM sizes.
+
+Decision:
+Use an allowed VM size from the returned list for the next AKS creation attempt.
+
+Selected replacement:
+standard_d2lds_v6

@@ -1,0 +1,3 @@
+Name                         Location    ResourceGroup               KubernetesVersion    CurrentKubernetesVersion    ProvisioningState    Fqdn
+---------------------------  ----------  --------------------------  -------------------  --------------------------  -------------------  -----------------------------------------------------------------
+aks-ecommerce-bluegreen-dev  uksouth     rg-ecommerce-bluegreen-dev  1.34                 1.34.8                      Succeeded            aks-ecomme-rg-ecommerce-blu-c89282-g397fpu6.hcp.uksouth.azmk8s.io

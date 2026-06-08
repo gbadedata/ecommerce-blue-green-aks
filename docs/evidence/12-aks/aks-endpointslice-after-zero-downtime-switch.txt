@@ -1,0 +1,2 @@
+NAME                      ADDRESSTYPE   PORTS   ENDPOINTS                  AGE
+ecommerce-service-prbl9   IPv4          3000    10.244.1.237,10.244.0.76   89m

@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ecommerce-green
+  namespace: ecommerce-bluegreen
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ecommerce
+      version: green
+  template:
+    metadata:
+      labels:
+        app: ecommerce
+        version: green
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/path: "/api/v1/metrics"
+        prometheus.io/port: "3000"
+    spec:
+      containers:
+        - name: ecommerce-server
+          image: acrecommercebg8070.azurecr.io/ecommerce-app:v2.0.0-green
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 3000
+          env:
+            - name: DATABASE_URL
+              value: "postgresql://postgres:postgres@postgres-service.ecommerce-bluegreen.svc.cluster.local:5432/ecommerce_dev"
+            - name: JWT_SECRET
+              value: "aks-dev-secret-change-later"
+            - name: PORT
+              value: "3000"
+            - name: APP_NAME
+              value: "ecommerce-app"
+            - name: APP_VERSION
+              value: "v2.0.0"
+            - name: APP_ENV
+              value: "green"
+          readinessProbe:
+            httpGet:
+              path: /api/v1/health/readiness
+              port: 3000
+            initialDelaySeconds: 20
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /api/v1/health/liveness
+              port: 3000
+            initialDelaySeconds: 40
+            periodSeconds: 20

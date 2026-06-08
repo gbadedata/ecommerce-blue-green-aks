@@ -1,0 +1,65 @@
+The push refers to repository [acrecommercebg8070.azurecr.io/ecommerce-app]
+8be81ea3773f: Waiting
+a3c80999c754: Waiting
+6d3e47baecca: Waiting
+f47de9289507: Waiting
+6a0ac1617861: Waiting
+d650d01ca78e: Waiting
+2d863499a6da: Waiting
+2ad77fb7cfd3: Waiting
+b6816b6a0419: Waiting
+35cf660f63b0: Waiting
+830906ade237: Waiting
+436243920dfb: Waiting
+50033b44cc95: Waiting
+e83982fd1e8a: Waiting
+2ad77fb7cfd3: Waiting
+b6816b6a0419: Waiting
+35cf660f63b0: Waiting
+830906ade237: Waiting
+436243920dfb: Waiting
+50033b44cc95: Waiting
+e83982fd1e8a: Waiting
+8be81ea3773f: Waiting
+a3c80999c754: Waiting
+6d3e47baecca: Waiting
+f47de9289507: Waiting
+6a0ac1617861: Waiting
+d650d01ca78e: Waiting
+2d863499a6da: Waiting
+2ad77fb7cfd3: Waiting
+b6816b6a0419: Waiting
+35cf660f63b0: Waiting
+830906ade237: Waiting
+436243920dfb: Waiting
+50033b44cc95: Waiting
+e83982fd1e8a: Waiting
+8be81ea3773f: Waiting
+a3c80999c754: Waiting
+6d3e47baecca: Waiting
+f47de9289507: Waiting
+6a0ac1617861: Waiting
+d650d01ca78e: Waiting
+2d863499a6da: Waiting
+2ad77fb7cfd3: Layer already exists
+b6816b6a0419: Layer already exists
+35cf660f63b0: Layer already exists
+830906ade237: Waiting
+436243920dfb: Waiting
+50033b44cc95: Waiting
+e83982fd1e8a: Waiting
+8be81ea3773f: Layer already exists
+a3c80999c754: Waiting
+f47de9289507: Waiting
+6a0ac1617861: Layer already exists
+d650d01ca78e: Waiting
+436243920dfb: Pushed
+6d3e47baecca: Pushed
+f47de9289507: Pushed
+d650d01ca78e: Pushed
+2d863499a6da: Pushed
+830906ade237: Pushed
+e83982fd1e8a: Pushed
+a3c80999c754: Pushed
+50033b44cc95: Pushed
+v2.0.0-green: digest: sha256:9030c2cef8305190a0c548638d743f88916bae7a94adfefe2819eef8ae115d24 size: 856

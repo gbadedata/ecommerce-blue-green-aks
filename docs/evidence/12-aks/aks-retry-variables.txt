@@ -1,0 +1,7 @@
+LOCATION=uksouth
+RESOURCE_GROUP=rg-ecommerce-bluegreen-dev
+ACR_NAME=acrecommercebg8070
+ACR_LOGIN_SERVER=acrecommercebg8070.azurecr.io
+AKS_NAME=aks-ecommerce-bluegreen-dev
+AKS_NODE_COUNT=2
+AKS_NODE_SIZE=standard_d2lds_v6

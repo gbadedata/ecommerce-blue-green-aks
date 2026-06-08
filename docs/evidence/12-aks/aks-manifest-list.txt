@@ -1,0 +1,5 @@
+k8s/aks/blue-deployment.yaml
+k8s/aks/green-deployment.yaml
+k8s/aks/namespace.yaml
+k8s/aks/postgres.yaml
+k8s/aks/service.yaml

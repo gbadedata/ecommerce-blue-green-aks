@@ -1,0 +1,22 @@
+AKS validation summary:
+
+- Azure Container Registry was created using Basic SKU with admin user disabled.
+- Blue and Green ecommerce Docker images were pushed to ACR.
+- Initial AKS creation with Standard_B2s failed because that VM size was not allowed in the subscription and uksouth region.
+- The AKS node size was changed to standard_d2lds_v6 based on Azure's allowed VM size list.
+- AKS cluster creation succeeded with two Ready nodes.
+- AKS was attached to ACR so the cluster could pull private container images.
+- Separate AKS Kubernetes manifests were created because Minikube manifests used local image loading and imagePullPolicy: Never.
+- A temporary in-cluster PostgreSQL deployment was used for validation only, avoiding dependency on the developer laptop or a paid managed PostgreSQL service.
+- Blue and Green deployments were deployed to AKS with two replicas each.
+- The stable ecommerce-service ClusterIP Service initially selected version=blue.
+- Blue endpoints and Blue version response were validated.
+- The Service selector was patched to version=green.
+- Green endpoints and Green version response were validated.
+- The Service selector was patched back to version=blue for rollback validation.
+- Rollback endpoints and Blue version response were validated.
+- kubectl port-forward behaviour was documented because an existing port-forward session continued returning Blue after the Service selector changed to Green.
+- A stronger zero-downtime test was performed from inside AKS using a temporary curl pod.
+- During the in-cluster zero-downtime test, the Service selector was switched from Blue to Green.
+- The zero-downtime test completed with 60 total requests and 0 failed requests.
+- Final AKS validation result: PASS.

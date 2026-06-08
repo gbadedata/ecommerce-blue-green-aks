@@ -1,0 +1,8 @@
+During AKS Service selector switching, the Kubernetes Service selector changed correctly from Blue to Green and the Service endpoints updated to the Green pod IPs.
+
+However, the existing kubectl port-forward session continued returning Blue responses because port-forwarding a Service can remain attached to the backend pod selected when the port-forward session started.
+
+Resolution:
+The port-forward session was restarted after the Service selector changed to Green. After restarting port-forward, requests correctly returned the Green version.
+
+This was a local validation behaviour of kubectl port-forward, not a failure of the AKS Service selector switching.

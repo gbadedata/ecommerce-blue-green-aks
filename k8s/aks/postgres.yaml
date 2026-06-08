@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ecommerce-postgres
+  namespace: ecommerce-bluegreen
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ecommerce-postgres
+  template:
+    metadata:
+      labels:
+        app: ecommerce-postgres
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:16-alpine
+          ports:
+            - containerPort: 5432
+          env:
+            - name: POSTGRES_USER
+              value: "postgres"
+            - name: POSTGRES_PASSWORD
+              value: "postgres"
+            - name: POSTGRES_DB
+              value: "ecommerce_dev"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres-service
+  namespace: ecommerce-bluegreen
+spec:
+  type: ClusterIP
+  selector:
+    app: ecommerce-postgres
+  ports:
+    - name: postgres
+      port: 5432
+      targetPort: 5432

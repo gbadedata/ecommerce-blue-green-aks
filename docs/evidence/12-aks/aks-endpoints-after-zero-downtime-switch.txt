@@ -1,0 +1,2 @@
+NAME                ENDPOINTS                            AGE
+ecommerce-service   10.244.0.76:3000,10.244.1.237:3000   89m

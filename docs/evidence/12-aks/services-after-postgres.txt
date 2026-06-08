@@ -1,0 +1,2 @@
+NAME               TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)    AGE   SELECTOR
+postgres-service   ClusterIP   10.0.149.111   <none>        5432/TCP   46s   app=ecommerce-postgres
