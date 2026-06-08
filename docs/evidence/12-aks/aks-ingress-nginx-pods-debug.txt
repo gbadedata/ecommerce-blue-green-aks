@@ -1,0 +1,3 @@
+NAME                                       READY   STATUS    RESTARTS   AGE   IP             NODE                                NOMINATED NODE   READINESS GATES
+ingress-nginx-controller-6fd7d65fb-975rg   1/1     Running   0          16m   10.244.1.31    aks-nodepool1-35250949-vmss000001   <none>           <none>
+ingress-nginx-controller-6fd7d65fb-mb6hw   1/1     Running   0          16m   10.244.0.164   aks-nodepool1-35250949-vmss000000   <none>           <none>

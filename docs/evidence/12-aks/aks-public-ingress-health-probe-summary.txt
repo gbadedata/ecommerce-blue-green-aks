@@ -1,0 +1,16 @@
+AKS public Ingress validation summary:
+
+- NGINX Ingress Controller was installed on AKS using Helm.
+- The controller created an Azure public LoadBalancer with public IP 131.145.96.69.
+- The ecommerce Ingress rule used host ecommerce-aks.local and routed traffic to ecommerce-service:80.
+- The Ingress backend correctly resolved to the active Green pod endpoints.
+- Initial public curl requests to the Azure LoadBalancer IP timed out.
+- Internal in-cluster testing against the ingress-nginx-controller service succeeded with HTTP 200, proving the NGINX Ingress rule and backend routing were correct.
+- The issue was isolated to the Azure public LoadBalancer path.
+- The ingress-nginx-controller Service was patched with the Azure LoadBalancer health probe annotation:
+  service.beta.kubernetes.io/azure-load-balancer-health-probe-request-path: /healthz
+- After Azure LoadBalancer reconciliation, public HTTP requests to the Ingress IP succeeded.
+- Public Ingress returned the active Green version.
+- Public Ingress was then used to validate switching back to Blue through the same stable Ingress and Service path.
+
+Result: AKS public Ingress validation passed.

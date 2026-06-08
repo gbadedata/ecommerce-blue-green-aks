@@ -1,0 +1,17 @@
+Name:             ecommerce-ingress
+Labels:           <none>
+Namespace:        ecommerce-bluegreen
+Address:          131.145.96.69
+Ingress Class:    nginx
+Default backend:  <default>
+Rules:
+  Host                 Path  Backends
+  ----                 ----  --------
+  ecommerce-aks.local  
+                       /   ecommerce-service:80 (10.244.1.237:3000,10.244.0.76:3000)
+Annotations:           <none>
+Events:
+  Type    Reason  Age                From                      Message
+  ----    ------  ----               ----                      -------
+  Normal  Sync    13m (x2 over 13m)  nginx-ingress-controller  Scheduled for sync
+  Normal  Sync    13m (x2 over 13m)  nginx-ingress-controller  Scheduled for sync

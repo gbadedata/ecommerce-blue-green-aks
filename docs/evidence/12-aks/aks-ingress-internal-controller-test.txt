@@ -1,0 +1,15 @@
+Testing ingress-nginx-controller service internally
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+HTTP/1.1 200 OK
+Date: Mon, 08 Jun 2026 23:20:49 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 117
+Connection: keep-alive
+X-Powered-By: Express
+Vary: Origin
+Access-Control-Allow-Credentials: true
+ETag: W/"75-LfU8Fm99ZgM09/5Q6c1MPRDylWY"
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   117  100   117    0     0   7229      0 --:--:-- --:--:-- --:--:--  7312
+{"app":"ecommerce-app","version":"v2.0.0","environment":"green","status":"ok","timestamp":"2026-06-08T23:20:49.397Z"}pod "aks-ingress-internal-test" deleted from ecommerce-bluegreen namespace

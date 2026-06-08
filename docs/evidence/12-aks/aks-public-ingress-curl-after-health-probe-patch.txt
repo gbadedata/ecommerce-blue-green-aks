@@ -1,0 +1,23 @@
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0*   Trying 131.145.96.69:80...
+* Connected to 131.145.96.69 (131.145.96.69) port 80
+> GET /api/v1/version HTTP/1.1
+> Host: ecommerce-aks.local
+> User-Agent: curl/8.5.0
+> Accept: */*
+> 
+< HTTP/1.1 200 OK
+< Date: Mon, 08 Jun 2026 23:27:41 GMT
+< Content-Type: application/json; charset=utf-8
+< Content-Length: 117
+< Connection: keep-alive
+< X-Powered-By: Express
+< Vary: Origin
+< Access-Control-Allow-Credentials: true
+< ETag: W/"75-lpQi25RTWPdolRu17KQM4u744oA"
+< 
+{ [117 bytes data]
+100   117  100   117    0     0   2435      0 --:--:-- --:--:-- --:--:--  2437
+* Connection #0 to host 131.145.96.69 left intact
+{"app":"ecommerce-app","version":"v2.0.0","environment":"green","status":"ok","timestamp":"2026-06-08T23:27:41.028Z"}
