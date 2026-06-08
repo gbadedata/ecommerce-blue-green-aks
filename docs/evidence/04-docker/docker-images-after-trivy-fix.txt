@@ -1,0 +1,2 @@
+ecommerce-app                                                         v2.0.0-green        9030c2cef830   1.08GB
+ecommerce-app                                                         v1.0.0-blue         7fc8fc45934e   1.08GB

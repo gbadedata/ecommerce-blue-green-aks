@@ -1,0 +1,29 @@
+Local Blue-Green deployment validation summary:
+
+- The existing NestJS ecommerce application was prepared for Blue-Green deployment.
+- A /api/v1/version endpoint was added to expose application version and environment metadata.
+- A /api/v1/metrics endpoint was added using prom-client for Prometheus-compatible metrics.
+- Unit tests and production build passed after fixing stale tests, module aliasing, Prisma import mapping, and dependency mocks.
+- Blue and Green Docker images were built successfully.
+- Runtime container startup was validated for both Blue and Green.
+- Trivy HIGH/CRITICAL image scanning initially detected a HIGH vulnerability from npm bundled inside the Node runtime image.
+- The vulnerability was resolved by removing npm, npx, and corepack from the final runtime image because the production container only needs node to run the compiled NestJS app.
+- Final Trivy HIGH/CRITICAL scans passed for both Blue and Green images.
+- Blue and Green images were loaded into Minikube.
+- Blue and Green Kubernetes deployments were created with two replicas each.
+- One stable ClusterIP Service was used for traffic routing.
+- Traffic switching was implemented by patching the Service selector from version=blue to version=green.
+- NGINX Ingress routed external traffic to the stable Service.
+- Direct ecommerce.local access was affected by local WSL/Minikube networking, so the Ingress controller was port-forwarded and tested using the Host: ecommerce.local header.
+- Blue traffic through Ingress was verified.
+- Blue-to-Green switch was verified.
+- Green-to-Blue rollback was verified.
+- A zero-downtime test completed with 51 total requests and 0 failed requests while switching from Blue to Green.
+- kube-prometheus-stack was installed with Helm.
+- A ServiceMonitor was created for the ecommerce service.
+- Prometheus discovered the ecommerce target and successfully queried ecommerce_app_info.
+- Grafana dashboard evidence was captured.
+- Grafana credential evidence was redacted and excluded from Git tracking.
+- Secret scan passed before commit.
+
+Local validation result: PASS.

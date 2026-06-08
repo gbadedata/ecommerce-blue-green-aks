@@ -1,0 +1,13 @@
+success
+ecommerce_app_info
+green
+blue
+green
+green
+v2.0.0
+ecommerce_app_info
+green
+blue
+green
+green
+v2.0.0

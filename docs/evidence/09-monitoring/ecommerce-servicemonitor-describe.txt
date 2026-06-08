@@ -1,0 +1,23 @@
+Name:         ecommerce-service-monitor
+Namespace:    ecommerce-bluegreen
+Labels:       release=monitoring
+Annotations:  <none>
+API Version:  monitoring.coreos.com/v1
+Kind:         ServiceMonitor
+Metadata:
+  Creation Timestamp:  2026-06-08T18:47:07Z
+  Generation:          1
+  Resource Version:    396616
+  UID:                 115dd449-3aaa-4df7-9071-3f70d4ece423
+Spec:
+  Endpoints:
+    Interval:  15s
+    Path:      /api/v1/metrics
+    Port:      http
+  Namespace Selector:
+    Match Names:
+      ecommerce-bluegreen
+  Selector:
+    Match Labels:
+      App:  ecommerce
+Events:     <none>

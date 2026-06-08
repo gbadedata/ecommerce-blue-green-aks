@@ -1,0 +1,2 @@
+NAME       STATUS   ROLES           AGE     VERSION   INTERNAL-IP    EXTERNAL-IP   OS-IMAGE                         KERNEL-VERSION                      CONTAINER-RUNTIME
+minikube   Ready    control-plane   5d19h   v1.35.1   192.168.49.2   <none>        Debian GNU/Linux 12 (bookworm)   6.6.114.1-microsoft-standard-WSL2   docker://29.2.1

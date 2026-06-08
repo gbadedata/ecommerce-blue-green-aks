@@ -7,6 +7,7 @@ import { HealthModule } from '../health/health.module';
 import { AuthModule } from '../auth/auth.module';
 import { GlobalModule } from '../global/global.module'
 import { UsersModule } from '../users/users.module'
+import { MetricsModule } from '../metrics/metrics.module'
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { UsersModule } from '../users/users.module'
     AuthModule,
     GlobalModule,
     UsersModule,
+    MetricsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

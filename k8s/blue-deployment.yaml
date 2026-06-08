@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ecommerce-blue
+  namespace: ecommerce-bluegreen
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ecommerce
+      version: blue
+  template:
+    metadata:
+      labels:
+        app: ecommerce
+        version: blue
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/path: "/api/v1/metrics"
+        prometheus.io/port: "3000"
+    spec:
+      containers:
+        - name: ecommerce-server
+          image: ecommerce-app:v1.0.0-blue
+          imagePullPolicy: Never
+          ports:
+            - name: http
+              containerPort: 3000
+          env:
+            - name: DATABASE_URL
+              value: "postgresql://postgres:postgres@host.minikube.internal:5433/ecommerce_dev"
+            - name: JWT_SECRET
+              value: "local-dev-secret-change-later"
+            - name: PORT
+              value: "3000"
+            - name: APP_NAME
+              value: "ecommerce-app"
+            - name: APP_VERSION
+              value: "v1.0.0"
+            - name: APP_ENV
+              value: "blue"
+          readinessProbe:
+            httpGet:
+              path: /api/v1/health/readiness
+              port: 3000
+            initialDelaySeconds: 15
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /api/v1/health/liveness
+              port: 3000
+            initialDelaySeconds: 30
+            periodSeconds: 20

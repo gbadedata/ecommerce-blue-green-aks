@@ -1,0 +1,11 @@
+Monitoring validation summary:
+
+- kube-prometheus-stack was installed successfully using Helm.
+- Prometheus, Grafana, Alertmanager, kube-state-metrics, node-exporter, and the Prometheus Operator were running.
+- The ecommerce application exposes Prometheus metrics at /api/v1/metrics.
+- A ServiceMonitor named ecommerce-service-monitor was created in the ecommerce-bluegreen namespace.
+- Prometheus discovered the ecommerce-service target through the ServiceMonitor.
+- The custom ecommerce_app_info metric was successfully queried from Prometheus.
+- The active application version at the time of monitoring validation was v2.0.0 in the green environment.
+- Grafana was accessed through local port-forwarding.
+- Grafana password evidence was intentionally redacted and excluded from Git tracking.

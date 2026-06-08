@@ -1,0 +1,1 @@
+deployment "ecommerce-green" successfully rolled out

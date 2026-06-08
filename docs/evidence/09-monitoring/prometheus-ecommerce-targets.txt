@@ -1,0 +1,12 @@
+ecommerce
+ecommerce-app:v2.0.0-green
+ecommerce-bluegreen
+ecommerce-bluegreen/ecommerce-service-monitor/0
+ecommerce-bluegreen\
+ecommerce-green-5989dd5746
+ecommerce-green-5989dd5746-j4hq4
+ecommerce-green-5989dd5746-vbd9k
+ecommerce-server
+ecommerce-service
+ecommerce-service\
+ecommerce\

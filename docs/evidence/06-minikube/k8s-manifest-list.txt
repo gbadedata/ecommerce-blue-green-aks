@@ -1,0 +1,5 @@
+k8s/blue-deployment.yaml
+k8s/green-deployment.yaml
+k8s/ingress.yaml
+k8s/namespace.yaml
+k8s/service.yaml

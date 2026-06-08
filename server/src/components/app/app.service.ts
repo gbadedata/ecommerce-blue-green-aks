@@ -418,4 +418,14 @@ End Users
 </body>
 </html>`;
   }
+  getVersion() {
+    return {
+      app: process.env.APP_NAME || 'ecommerce-app',
+      version: process.env.APP_VERSION || 'v1.0.0',
+      environment: process.env.APP_ENV || 'blue',
+      status: 'ok',
+      timestamp: new Date().toISOString(),
+    };
+  }
+
 }

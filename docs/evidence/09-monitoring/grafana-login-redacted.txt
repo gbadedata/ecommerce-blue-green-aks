@@ -1,0 +1,7 @@
+Grafana credential note:
+
+Username used for local validation: admin
+
+The Grafana admin password was retrieved from the Kubernetes-generated Grafana admin secret during local validation, but the value was intentionally redacted and must not be committed to GitHub.
+
+Secret handling result: PASS.

@@ -1,0 +1,2 @@
+NAME                      ADDRESSTYPE   PORTS   ENDPOINTS                 AGE
+ecommerce-service-rsfhv   IPv4          3000    10.244.0.19,10.244.0.22   8m32s

@@ -1,0 +1,9 @@
+NAME                               READY   STATUS    RESTARTS       AGE     LABELS
+ecommerce-blue-85f5dc4c57-slrpc    1/1     Running   0              49s     app=ecommerce,pod-template-hash=85f5dc4c57,version=blue
+ecommerce-blue-85f5dc4c57-zvg6x    1/1     Running   0              49s     app=ecommerce,pod-template-hash=85f5dc4c57,version=blue
+ecommerce-green-5989dd5746-j4hq4   1/1     Running   0              47s     app=ecommerce,pod-template-hash=5989dd5746,version=green
+ecommerce-green-5989dd5746-vbd9k   1/1     Running   0              47s     app=ecommerce,pod-template-hash=5989dd5746,version=green
+shopswift-blue-589dff6c89-g2dj8    1/1     Running   0              5d18h   app=shopswift,environment=blue,pod-template-hash=589dff6c89,version=v1.0.0
+shopswift-blue-589dff6c89-q22s2    1/1     Running   1 (4d1h ago)   5d18h   app=shopswift,environment=blue,pod-template-hash=589dff6c89,version=v1.0.0
+shopswift-green-8579dcbbb7-vdq5g   1/1     Running   0              5d18h   app=shopswift,environment=green,pod-template-hash=8579dcbbb7,version=v2.0.0
+shopswift-green-8579dcbbb7-wlmq8   1/1     Running   0              5d18h   app=shopswift,environment=green,pod-template-hash=8579dcbbb7,version=v2.0.0

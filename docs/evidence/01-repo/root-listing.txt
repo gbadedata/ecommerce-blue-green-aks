@@ -1,0 +1,8 @@
+total 24
+drwxr-xr-x  6 gbadedata gbadedata 4096 Jun  8 14:27 .
+drwxr-xr-x 15 gbadedata gbadedata 4096 Jun  6 21:23 ..
+drwxr-xr-x  8 gbadedata gbadedata 4096 Jun  8 14:27 .git
+-rw-r--r--  1 gbadedata gbadedata    0 Jun  6 21:24 README
+drwxr-xr-x  2 gbadedata gbadedata 4096 Jun  6 21:24 client
+drwxr-xr-x  3 gbadedata gbadedata 4096 Jun  8 14:27 docs
+drwxr-xr-x  8 gbadedata gbadedata 4096 Jun  8 14:27 server

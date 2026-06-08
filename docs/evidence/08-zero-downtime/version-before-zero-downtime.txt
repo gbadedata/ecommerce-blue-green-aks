@@ -1,0 +1,1 @@
+{"app":"ecommerce-app","version":"v1.0.0","environment":"blue","status":"ok","timestamp":"2026-06-08T18:03:10.183Z"}

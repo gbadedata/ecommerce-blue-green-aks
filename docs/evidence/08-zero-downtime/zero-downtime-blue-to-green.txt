@@ -1,0 +1,59 @@
+Starting zero-downtime test
+BASE_URL=http://localhost:8080
+HOST_HEADER=ecommerce.local
+DURATION_SECONDS=60
+
+OK status=200 body={"app":"ecommerce-app","version":"v1.0.0","environment":"blue","status":"ok","timestamp":"2026-06-08T18:03:40.311Z"}
+OK status=200 body={"app":"ecommerce-app","version":"v1.0.0","environment":"blue","status":"ok","timestamp":"2026-06-08T18:03:41.375Z"}
+OK status=200 body={"app":"ecommerce-app","version":"v1.0.0","environment":"blue","status":"ok","timestamp":"2026-06-08T18:03:42.426Z"}
+OK status=200 body={"app":"ecommerce-app","version":"v1.0.0","environment":"blue","status":"ok","timestamp":"2026-06-08T18:03:43.490Z"}
+OK status=200 body={"app":"ecommerce-app","version":"v1.0.0","environment":"blue","status":"ok","timestamp":"2026-06-08T18:03:44.566Z"}
+OK status=200 body={"app":"ecommerce-app","version":"v1.0.0","environment":"blue","status":"ok","timestamp":"2026-06-08T18:03:45.614Z"}
+OK status=200 body={"app":"ecommerce-app","version":"v1.0.0","environment":"blue","status":"ok","timestamp":"2026-06-08T18:03:46.660Z"}
+OK status=200 body={"app":"ecommerce-app","version":"v1.0.0","environment":"blue","status":"ok","timestamp":"2026-06-08T18:03:47.698Z"}
+OK status=200 body={"app":"ecommerce-app","version":"v1.0.0","environment":"blue","status":"ok","timestamp":"2026-06-08T18:03:48.742Z"}
+OK status=200 body={"app":"ecommerce-app","version":"v1.0.0","environment":"blue","status":"ok","timestamp":"2026-06-08T18:03:49.778Z"}
+OK status=200 body={"app":"ecommerce-app","version":"v1.0.0","environment":"blue","status":"ok","timestamp":"2026-06-08T18:03:54.163Z"}
+OK status=200 body={"app":"ecommerce-app","version":"v1.0.0","environment":"blue","status":"ok","timestamp":"2026-06-08T18:03:55.283Z"}
+OK status=200 body={"app":"ecommerce-app","version":"v1.0.0","environment":"blue","status":"ok","timestamp":"2026-06-08T18:03:56.318Z"}
+OK status=200 body={"app":"ecommerce-app","version":"v1.0.0","environment":"blue","status":"ok","timestamp":"2026-06-08T18:03:57.346Z"}
+OK status=200 body={"app":"ecommerce-app","version":"v1.0.0","environment":"blue","status":"ok","timestamp":"2026-06-08T18:03:58.378Z"}
+OK status=200 body={"app":"ecommerce-app","version":"v1.0.0","environment":"blue","status":"ok","timestamp":"2026-06-08T18:03:59.480Z"}
+OK status=200 body={"app":"ecommerce-app","version":"v1.0.0","environment":"blue","status":"ok","timestamp":"2026-06-08T18:04:00.592Z"}
+OK status=200 body={"app":"ecommerce-app","version":"v1.0.0","environment":"blue","status":"ok","timestamp":"2026-06-08T18:04:01.677Z"}
+OK status=200 body={"app":"ecommerce-app","version":"v1.0.0","environment":"blue","status":"ok","timestamp":"2026-06-08T18:04:02.732Z"}
+OK status=200 body={"app":"ecommerce-app","version":"v1.0.0","environment":"blue","status":"ok","timestamp":"2026-06-08T18:04:03.778Z"}
+OK status=200 body={"app":"ecommerce-app","version":"v1.0.0","environment":"blue","status":"ok","timestamp":"2026-06-08T18:04:04.798Z"}
+OK status=200 body={"app":"ecommerce-app","version":"v1.0.0","environment":"blue","status":"ok","timestamp":"2026-06-08T18:04:05.826Z"}
+OK status=200 body={"app":"ecommerce-app","version":"v1.0.0","environment":"blue","status":"ok","timestamp":"2026-06-08T18:04:06.854Z"}
+OK status=200 body={"app":"ecommerce-app","version":"v1.0.0","environment":"blue","status":"ok","timestamp":"2026-06-08T18:04:07.882Z"}
+OK status=200 body={"app":"ecommerce-app","version":"v1.0.0","environment":"blue","status":"ok","timestamp":"2026-06-08T18:04:08.905Z"}
+OK status=200 body={"app":"ecommerce-app","version":"v1.0.0","environment":"blue","status":"ok","timestamp":"2026-06-08T18:04:10.009Z"}
+OK status=200 body={"app":"ecommerce-app","version":"v1.0.0","environment":"blue","status":"ok","timestamp":"2026-06-08T18:04:11.040Z"}
+OK status=200 body={"app":"ecommerce-app","version":"v1.0.0","environment":"blue","status":"ok","timestamp":"2026-06-08T18:04:12.065Z"}
+OK status=200 body={"app":"ecommerce-app","version":"v1.0.0","environment":"blue","status":"ok","timestamp":"2026-06-08T18:04:13.262Z"}
+OK status=200 body={"app":"ecommerce-app","version":"v1.0.0","environment":"blue","status":"ok","timestamp":"2026-06-08T18:04:14.293Z"}
+OK status=200 body={"app":"ecommerce-app","version":"v1.0.0","environment":"blue","status":"ok","timestamp":"2026-06-08T18:04:15.315Z"}
+OK status=200 body={"app":"ecommerce-app","version":"v1.0.0","environment":"blue","status":"ok","timestamp":"2026-06-08T18:04:16.337Z"}
+OK status=200 body={"app":"ecommerce-app","version":"v1.0.0","environment":"blue","status":"ok","timestamp":"2026-06-08T18:04:17.359Z"}
+OK status=200 body={"app":"ecommerce-app","version":"v2.0.0","environment":"green","status":"ok","timestamp":"2026-06-08T18:04:18.383Z"}
+OK status=200 body={"app":"ecommerce-app","version":"v2.0.0","environment":"green","status":"ok","timestamp":"2026-06-08T18:04:19.411Z"}
+OK status=200 body={"app":"ecommerce-app","version":"v2.0.0","environment":"green","status":"ok","timestamp":"2026-06-08T18:04:20.432Z"}
+OK status=200 body={"app":"ecommerce-app","version":"v2.0.0","environment":"green","status":"ok","timestamp":"2026-06-08T18:04:21.453Z"}
+OK status=200 body={"app":"ecommerce-app","version":"v2.0.0","environment":"green","status":"ok","timestamp":"2026-06-08T18:04:22.473Z"}
+OK status=200 body={"app":"ecommerce-app","version":"v2.0.0","environment":"green","status":"ok","timestamp":"2026-06-08T18:04:23.492Z"}
+OK status=200 body={"app":"ecommerce-app","version":"v2.0.0","environment":"green","status":"ok","timestamp":"2026-06-08T18:04:27.856Z"}
+OK status=200 body={"app":"ecommerce-app","version":"v2.0.0","environment":"green","status":"ok","timestamp":"2026-06-08T18:04:28.878Z"}
+OK status=200 body={"app":"ecommerce-app","version":"v2.0.0","environment":"green","status":"ok","timestamp":"2026-06-08T18:04:29.899Z"}
+OK status=200 body={"app":"ecommerce-app","version":"v2.0.0","environment":"green","status":"ok","timestamp":"2026-06-08T18:04:30.921Z"}
+OK status=200 body={"app":"ecommerce-app","version":"v2.0.0","environment":"green","status":"ok","timestamp":"2026-06-08T18:04:31.941Z"}
+OK status=200 body={"app":"ecommerce-app","version":"v2.0.0","environment":"green","status":"ok","timestamp":"2026-06-08T18:04:32.971Z"}
+OK status=200 body={"app":"ecommerce-app","version":"v2.0.0","environment":"green","status":"ok","timestamp":"2026-06-08T18:04:33.996Z"}
+OK status=200 body={"app":"ecommerce-app","version":"v2.0.0","environment":"green","status":"ok","timestamp":"2026-06-08T18:04:35.025Z"}
+OK status=200 body={"app":"ecommerce-app","version":"v2.0.0","environment":"green","status":"ok","timestamp":"2026-06-08T18:04:36.047Z"}
+OK status=200 body={"app":"ecommerce-app","version":"v2.0.0","environment":"green","status":"ok","timestamp":"2026-06-08T18:04:37.068Z"}
+OK status=200 body={"app":"ecommerce-app","version":"v2.0.0","environment":"green","status":"ok","timestamp":"2026-06-08T18:04:38.091Z"}
+OK status=200 body={"app":"ecommerce-app","version":"v2.0.0","environment":"green","status":"ok","timestamp":"2026-06-08T18:04:39.121Z"}
+
+Total requests: 51
+Failed requests: 0

@@ -1,0 +1,16 @@
+NAME                                   READY   STATUS    RESTARTS   AGE     IP            NODE       NOMINATED NODE   READINESS GATES
+pod/ecommerce-blue-85f5dc4c57-slrpc    1/1     Running   0          5m13s   10.244.0.22   minikube   <none>           <none>
+pod/ecommerce-blue-85f5dc4c57-zvg6x    1/1     Running   0          5m13s   10.244.0.19   minikube   <none>           <none>
+pod/ecommerce-green-5989dd5746-j4hq4   1/1     Running   0          5m11s   10.244.0.21   minikube   <none>           <none>
+pod/ecommerce-green-5989dd5746-vbd9k   1/1     Running   0          5m11s   10.244.0.20   minikube   <none>           <none>
+
+NAME                        TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)   AGE    SELECTOR
+service/ecommerce-service   ClusterIP   10.96.165.65   <none>        80/TCP    5m7s   app=ecommerce,version=blue
+
+NAME                              READY   UP-TO-DATE   AVAILABLE   AGE     CONTAINERS         IMAGES                       SELECTOR
+deployment.apps/ecommerce-blue    2/2     2            2           5m14s   ecommerce-server   ecommerce-app:v1.0.0-blue    app=ecommerce,version=blue
+deployment.apps/ecommerce-green   2/2     2            2           5m12s   ecommerce-server   ecommerce-app:v2.0.0-green   app=ecommerce,version=green
+
+NAME                                         DESIRED   CURRENT   READY   AGE     CONTAINERS         IMAGES                       SELECTOR
+replicaset.apps/ecommerce-blue-85f5dc4c57    2         2         2       5m14s   ecommerce-server   ecommerce-app:v1.0.0-blue    app=ecommerce,pod-template-hash=85f5dc4c57,version=blue
+replicaset.apps/ecommerce-green-5989dd5746   2         2         2       5m12s   ecommerce-server   ecommerce-app:v2.0.0-green   app=ecommerce,pod-template-hash=5989dd5746,version=green

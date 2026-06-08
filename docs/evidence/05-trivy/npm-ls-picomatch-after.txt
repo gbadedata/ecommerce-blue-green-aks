@@ -1,0 +1,27 @@
+server@1.0.0 /home/gbadedata/projects/ecommerce-app/server
+├─┬ @nestjs/cli@11.0.21
+│ └─┬ @angular-devkit/core@19.2.24
+│   └── picomatch@4.0.4 overridden
+├─┬ @types/jest@30.0.0
+│ └─┬ expect@30.4.1
+│   └─┬ jest-message-util@30.4.1
+│     └── picomatch@4.0.4 deduped
+├─┬ jest@30.4.2
+│ └─┬ @jest/core@30.4.2
+│   └─┬ jest-haste-map@30.4.1
+│     ├─┬ anymatch@3.1.3
+│     │ └── picomatch@4.0.4 deduped
+│     └── picomatch@4.0.4 deduped
+├─┬ ts-jest@29.4.11
+│ └─┬ jest-util@30.4.1
+│   └── picomatch@4.0.4 deduped
+├─┬ ts-loader@9.6.0
+│ └─┬ micromatch@4.0.8
+│   └── picomatch@4.0.4 deduped
+└─┬ typescript-eslint@8.60.1
+  └─┬ @typescript-eslint/typescript-estree@8.60.1
+    └─┬ tinyglobby@0.2.17
+      ├─┬ fdir@6.5.0
+      │ └── picomatch@4.0.4 deduped
+      └── picomatch@4.0.4 deduped
+

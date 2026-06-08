@@ -1,0 +1,52 @@
+=== DATE ===
+Mon Jun  8 14:27:46 BST 2026
+
+=== PWD ===
+/home/gbadedata/projects/ecommerce-app
+
+=== GIT STATUS ===
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   server/package.json
+	modified:   server/src/components/app/app.controller.spec.ts
+	modified:   server/src/components/app/app.controller.ts
+	modified:   server/src/components/app/app.service.ts
+	modified:   server/src/components/auth/auth.controller.spec.ts
+	modified:   server/src/components/auth/auth.service.spec.ts
+	modified:   server/src/components/users/users.controller.spec.ts
+	modified:   server/src/components/users/users.service.spec.ts
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	docs/
+	server/.dockerignore
+	server/Dockerfile
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+=== DOCKER PS ===
+CONTAINER ID   IMAGE                                 COMMAND                  CREATED        STATUS        PORTS                                                                                                                                  NAMES
+03b370d7b639   postgres:16-alpine                    "docker-entrypoint.s…"   39 hours ago   Up 39 hours   0.0.0.0:5433->5432/tcp, [::]:5433->5432/tcp                                                                                            ecommerce-postgres
+07e9949d8c94   moby/buildkit:buildx-stable-1         "/usr/bin/buildkitd-…"   4 days ago     Up 4 days                                                                                                                                            buildx_buildkit_multiarch0
+00767895d736   gcr.io/k8s-minikube/kicbase:v0.0.50   "/usr/local/bin/entr…"   5 days ago     Up 5 days     127.0.0.1:57073->22/tcp, 127.0.0.1:57072->2376/tcp, 127.0.0.1:57075->5000/tcp, 127.0.0.1:64478->8443/tcp, 127.0.0.1:57074->32443/tcp   minikube
+
+=== PORT 3000 ===
+
+=== POSTGRES 5433 ===
+localhost:5433 - accepting connections
+
+=== MINIKUBE STATUS ===
+minikube
+type: Control Plane
+host: Running
+kubelet: Running
+apiserver: Running
+kubeconfig: Configured
+
+
+=== KUBECTL CONTEXT ===
+aks-mediflow-dev

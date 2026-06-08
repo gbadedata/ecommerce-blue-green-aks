@@ -1,0 +1,7 @@
+NAME                                                     READY   STATUS              RESTARTS   AGE    IP             NODE       NOMINATED NODE   READINESS GATES
+alertmanager-monitoring-kube-prometheus-alertmanager-0   0/2     PodInitializing     0          91s    10.244.0.28    minikube   <none>           <none>
+monitoring-grafana-79b9876bb9-vb86p                      0/3     ContainerCreating   0          119s   <none>         minikube   <none>           <none>
+monitoring-kube-prometheus-operator-b79ccf6cd-gr9lb      1/1     Running             0          119s   10.244.0.25    minikube   <none>           <none>
+monitoring-kube-state-metrics-868694bc4b-rls85           1/1     Running             0          119s   10.244.0.24    minikube   <none>           <none>
+monitoring-prometheus-node-exporter-wxvb7                1/1     Running             0          119s   192.168.49.2   minikube   <none>           <none>
+prometheus-monitoring-kube-prometheus-prometheus-0       0/2     PodInitializing     0          91s    10.244.0.29    minikube   <none>           <none>

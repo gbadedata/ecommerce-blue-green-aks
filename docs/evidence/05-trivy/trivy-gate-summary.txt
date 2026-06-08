@@ -1,0 +1,8 @@
+=== TRIVY GATE SUMMARY ===
+Mon Jun  8 17:08:31 BST 2026
+
+Blue image:
+- '0': Clean (no security findings detected)
+
+Green image:
+- '0': Clean (no security findings detected)

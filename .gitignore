@@ -1,0 +1,9 @@
+
+# Local secrets and sensitive evidence
+docs/evidence/09-monitoring/grafana-login.txt
+**/*password*.txt
+**/*secret*.txt
+.env
+.env.*
+!.env.example
+docs/evidence/09-monitoring/install-kube-prometheus-stack-full-local.txt

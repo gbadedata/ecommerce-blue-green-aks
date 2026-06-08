@@ -1,0 +1,143 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile:
+#1 transferring dockerfile: 725B 0.1s done
+#1 DONE 0.4s
+
+#2 [internal] load metadata for docker.io/library/node:22-alpine
+#2 ...
+
+#3 [auth] library/node:pull token for registry-1.docker.io
+#3 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/node:22-alpine
+#2 DONE 2.6s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 133B done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 DONE 0.0s
+
+#6 [builder  1/11] FROM docker.io/library/node:22-alpine@sha256:968df39aedcea65eeb078fb336ed7191baf48f972b4479711397108be0966920
+#6 resolve docker.io/library/node:22-alpine@sha256:968df39aedcea65eeb078fb336ed7191baf48f972b4479711397108be0966920
+#6 resolve docker.io/library/node:22-alpine@sha256:968df39aedcea65eeb078fb336ed7191baf48f972b4479711397108be0966920 0.1s done
+#6 DONE 0.1s
+
+#5 [internal] load build context
+#5 transferring context: 449.42kB 0.1s done
+#5 DONE 0.1s
+
+#7 [builder  2/11] WORKDIR /app
+#7 CACHED
+
+#8 [builder  3/11] COPY package*.json ./
+#8 DONE 0.2s
+
+#9 [builder  4/11] COPY prisma ./prisma
+#9 DONE 0.2s
+
+#10 [builder  5/11] COPY prisma.config.ts ./
+#10 DONE 0.1s
+
+#11 [runtime 6/9] RUN npm ci --omit=dev
+#11 ...
+
+#12 [builder  6/11] COPY tsconfig*.json ./
+#12 DONE 0.4s
+
+#13 [builder  7/11] COPY nest-cli.json ./
+#13 DONE 0.8s
+
+#11 [runtime 6/9] RUN npm ci --omit=dev
+#11 ...
+
+#14 [builder  8/11] RUN npm ci
+#14 74.60 npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+#14 76.55 npm warn deprecated glob@7.2.3: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+#14 83.89 npm warn deprecated glob@10.5.0: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+#14 83.90 npm warn deprecated glob@10.5.0: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+#14 83.92 npm warn deprecated glob@10.5.0: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+#14 ...
+
+#11 [runtime 6/9] RUN npm ci --omit=dev
+#11 100.9 
+#11 100.9 added 313 packages, and audited 314 packages in 1m
+#11 100.9 
+#11 100.9 65 packages are looking for funding
+#11 100.9   run `npm fund` for details
+#11 101.0 
+#11 101.0 3 moderate severity vulnerabilities
+#11 101.0 
+#11 101.0 To address all issues (including breaking changes), run:
+#11 101.0   npm audit fix --force
+#11 101.0 
+#11 101.0 Run `npm audit` for details.
+#11 101.0 npm notice
+#11 101.0 npm notice New major version of npm available! 10.9.8 -> 11.16.0
+#11 101.0 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.16.0
+#11 101.0 npm notice To update run: npm install -g npm@11.16.0
+#11 101.0 npm notice
+#11 DONE 101.9s
+
+#14 [builder  8/11] RUN npm ci
+#14 107.4 
+#14 107.4 added 873 packages, and audited 874 packages in 2m
+#14 107.4 
+#14 107.4 167 packages are looking for funding
+#14 107.4   run `npm fund` for details
+#14 107.5 
+#14 107.5 3 moderate severity vulnerabilities
+#14 107.5 
+#14 107.5 To address all issues (including breaking changes), run:
+#14 107.5   npm audit fix --force
+#14 107.5 
+#14 107.5 Run `npm audit` for details.
+#14 107.5 npm notice
+#14 107.5 npm notice New major version of npm available! 10.9.8 -> 11.16.0
+#14 107.5 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.16.0
+#14 107.5 npm notice To update run: npm install -g npm@11.16.0
+#14 107.5 npm notice
+#14 DONE 107.7s
+
+#15 [builder  9/11] COPY src ./src
+#15 DONE 0.4s
+
+#16 [builder 10/11] RUN npx prisma generate
+#16 2.110 Loaded Prisma config from prisma.config.ts.
+#16 2.110 
+#16 2.252 Prisma schema loaded from prisma/schema.prisma.
+#16 2.343 
+#16 2.343 ✔ Generated Prisma Client (7.8.0) to ./generated/prisma in 50ms
+#16 2.343 
+#16 DONE 2.4s
+
+#17 [builder 11/11] RUN npm run build
+#17 0.946 
+#17 0.946 > server@1.0.0 build
+#17 0.946 > nest build
+#17 0.946 
+#17 DONE 5.6s
+
+#18 [runtime 7/9] COPY --from=builder /app/dist ./dist
+#18 DONE 0.2s
+
+#19 [runtime 8/9] COPY --from=builder /app/generated ./generated
+#19 DONE 0.0s
+
+#20 [runtime 9/9] RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+#20 DONE 0.3s
+
+#21 exporting to image
+#21 exporting layers
+#21 exporting layers 21.2s done
+#21 exporting manifest sha256:2c854ced20e528ff233b64fc252455e4b0a994bbd6a5e190f3fd7459025e59e3 0.0s done
+#21 exporting config sha256:71585e4c86d9e27b219ff8b66823a6d9382af44437945076f7e878a2b31b8f92 0.0s done
+#21 exporting attestation manifest sha256:67902908c5f4ee02e364eac7a9527eb4626767ce9d32d380cb0d44821935269c 0.0s done
+#21 exporting manifest list sha256:ef71978f9a017afe84ded91b58603b007d1afb31fdb47bce8f7d49ed63d28dee 0.0s done
+#21 naming to docker.io/library/ecommerce-app:v1.0.0-blue done
+#21 unpacking to docker.io/library/ecommerce-app:v1.0.0-blue
+#21 unpacking to docker.io/library/ecommerce-app:v1.0.0-blue 7.6s done
+#21 DONE 28.9s

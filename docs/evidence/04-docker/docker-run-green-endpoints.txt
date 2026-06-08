@@ -1,0 +1,253 @@
+=== GREEN HEALTH ===
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Vary: Origin
+Access-Control-Allow-Credentials: true
+Cache-Control: no-cache, no-store, must-revalidate
+Content-Type: application/json; charset=utf-8
+Content-Length: 49
+ETag: W/"31-dxKeoZI+mvmnahNSR0ys2MInE1I"
+Date: Mon, 08 Jun 2026 14:58:26 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"status":"ok","info":{},"error":{},"details":{}}
+=== GREEN READINESS ===
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Vary: Origin
+Access-Control-Allow-Credentials: true
+Content-Type: application/json; charset=utf-8
+Content-Length: 57
+ETag: W/"39-Io3l+gFSK1FbQfbd/uyeK+/wo+E"
+Date: Mon, 08 Jun 2026 14:58:26 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"status":"ready","timestamp":"2026-06-08T14:58:26.057Z"}
+=== GREEN LIVENESS ===
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Vary: Origin
+Access-Control-Allow-Credentials: true
+Content-Type: application/json; charset=utf-8
+Content-Length: 57
+ETag: W/"39-6w0w+K18rC7ipRC2blLIHqHktqw"
+Date: Mon, 08 Jun 2026 14:58:26 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"status":"alive","timestamp":"2026-06-08T14:58:26.067Z"}
+=== GREEN VERSION ===
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Vary: Origin
+Access-Control-Allow-Credentials: true
+Content-Type: application/json; charset=utf-8
+Content-Length: 117
+ETag: W/"75-6n8gm4TefAPBSzfCZXT/vmYZhcA"
+Date: Mon, 08 Jun 2026 14:58:26 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"app":"ecommerce-app","version":"v2.0.0","environment":"green","status":"ok","timestamp":"2026-06-08T14:58:26.077Z"}
+=== GREEN METRICS ===
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Vary: Origin
+Access-Control-Allow-Credentials: true
+Content-Type: text/plain; charset=utf-8; version=0.0.4
+Content-Length: 10633
+ETag: W/"2989-U+exz8B0nF/CJCwmi+NFl7w01zI"
+Date: Mon, 08 Jun 2026 14:58:26 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+# HELP ecommerce_process_cpu_user_seconds_total Total user CPU time spent in seconds.
+# TYPE ecommerce_process_cpu_user_seconds_total counter
+ecommerce_process_cpu_user_seconds_total 4.061936
+
+# HELP ecommerce_process_cpu_system_seconds_total Total system CPU time spent in seconds.
+# TYPE ecommerce_process_cpu_system_seconds_total counter
+ecommerce_process_cpu_system_seconds_total 7.056194
+
+# HELP ecommerce_process_cpu_seconds_total Total user and system CPU time spent in seconds.
+# TYPE ecommerce_process_cpu_seconds_total counter
+ecommerce_process_cpu_seconds_total 11.11813
+
+# HELP ecommerce_process_start_time_seconds Start time of the process since unix epoch in seconds.
+# TYPE ecommerce_process_start_time_seconds gauge
+ecommerce_process_start_time_seconds 1780930368
+
+# HELP ecommerce_process_resident_memory_bytes Resident memory size in bytes.
+# TYPE ecommerce_process_resident_memory_bytes gauge
+ecommerce_process_resident_memory_bytes 125100032
+
+# HELP ecommerce_process_virtual_memory_bytes Virtual memory size in bytes.
+# TYPE ecommerce_process_virtual_memory_bytes gauge
+ecommerce_process_virtual_memory_bytes 11546238976
+
+# HELP ecommerce_process_heap_bytes Process heap size in bytes.
+# TYPE ecommerce_process_heap_bytes gauge
+ecommerce_process_heap_bytes 142684160
+
+# HELP ecommerce_process_open_fds Number of open file descriptors.
+# TYPE ecommerce_process_open_fds gauge
+ecommerce_process_open_fds 20
+
+# HELP ecommerce_process_max_fds Maximum number of open file descriptors.
+# TYPE ecommerce_process_max_fds gauge
+ecommerce_process_max_fds 1048576
+
+# HELP ecommerce_nodejs_eventloop_lag_seconds Lag of event loop in seconds.
+# TYPE ecommerce_nodejs_eventloop_lag_seconds gauge
+ecommerce_nodejs_eventloop_lag_seconds 0
+
+# HELP ecommerce_nodejs_eventloop_lag_min_seconds The minimum recorded event loop delay.
+# TYPE ecommerce_nodejs_eventloop_lag_min_seconds gauge
+ecommerce_nodejs_eventloop_lag_min_seconds 0.006868992
+
+# HELP ecommerce_nodejs_eventloop_lag_max_seconds The maximum recorded event loop delay.
+# TYPE ecommerce_nodejs_eventloop_lag_max_seconds gauge
+ecommerce_nodejs_eventloop_lag_max_seconds 0.602931199
+
+# HELP ecommerce_nodejs_eventloop_lag_mean_seconds The mean of the recorded event loop delays.
+# TYPE ecommerce_nodejs_eventloop_lag_mean_seconds gauge
+ecommerce_nodejs_eventloop_lag_mean_seconds 0.010254711190930209
+
+# HELP ecommerce_nodejs_eventloop_lag_stddev_seconds The standard deviation of the recorded event loop delays.
+# TYPE ecommerce_nodejs_eventloop_lag_stddev_seconds gauge
+ecommerce_nodejs_eventloop_lag_stddev_seconds 0.004979036883964652
+
+# HELP ecommerce_nodejs_eventloop_lag_p50_seconds The 50th percentile of the recorded event loop delays.
+# TYPE ecommerce_nodejs_eventloop_lag_p50_seconds gauge
+ecommerce_nodejs_eventloop_lag_p50_seconds 0.010125311
+
+# HELP ecommerce_nodejs_eventloop_lag_p90_seconds The 90th percentile of the recorded event loop delays.
+# TYPE ecommerce_nodejs_eventloop_lag_p90_seconds gauge
+ecommerce_nodejs_eventloop_lag_p90_seconds 0.010223615
+
+# HELP ecommerce_nodejs_eventloop_lag_p99_seconds The 99th percentile of the recorded event loop delays.
+# TYPE ecommerce_nodejs_eventloop_lag_p99_seconds gauge
+ecommerce_nodejs_eventloop_lag_p99_seconds 0.010772479
+
+# HELP ecommerce_nodejs_active_resources Number of active resources that are currently keeping the event loop alive, grouped by async resource type.
+# TYPE ecommerce_nodejs_active_resources gauge
+ecommerce_nodejs_active_resources{type="FSReqCallback"} 1
+ecommerce_nodejs_active_resources{type="PipeWrap"} 2
+ecommerce_nodejs_active_resources{type="TCPServerWrap"} 1
+ecommerce_nodejs_active_resources{type="TCPSocketWrap"} 1
+ecommerce_nodejs_active_resources{type="Immediate"} 1
+
+# HELP ecommerce_nodejs_active_resources_total Total number of active resources.
+# TYPE ecommerce_nodejs_active_resources_total gauge
+ecommerce_nodejs_active_resources_total 6
+
+# HELP ecommerce_nodejs_active_handles Number of active libuv handles grouped by handle type. Every handle type is C++ class name.
+# TYPE ecommerce_nodejs_active_handles gauge
+ecommerce_nodejs_active_handles{type="Socket"} 3
+ecommerce_nodejs_active_handles{type="Server"} 1
+
+# HELP ecommerce_nodejs_active_handles_total Total number of active handles.
+# TYPE ecommerce_nodejs_active_handles_total gauge
+ecommerce_nodejs_active_handles_total 4
+
+# HELP ecommerce_nodejs_active_requests Number of active libuv requests grouped by request type. Every request type is C++ class name.
+# TYPE ecommerce_nodejs_active_requests gauge
+ecommerce_nodejs_active_requests{type="FSReqCallback"} 1
+
+# HELP ecommerce_nodejs_active_requests_total Total number of active requests.
+# TYPE ecommerce_nodejs_active_requests_total gauge
+ecommerce_nodejs_active_requests_total 1
+
+# HELP ecommerce_nodejs_heap_size_total_bytes Process heap size from Node.js in bytes.
+# TYPE ecommerce_nodejs_heap_size_total_bytes gauge
+ecommerce_nodejs_heap_size_total_bytes 43917312
+
+# HELP ecommerce_nodejs_heap_size_used_bytes Process heap size used from Node.js in bytes.
+# TYPE ecommerce_nodejs_heap_size_used_bytes gauge
+ecommerce_nodejs_heap_size_used_bytes 41056608
+
+# HELP ecommerce_nodejs_external_memory_bytes Node.js external memory size in bytes.
+# TYPE ecommerce_nodejs_external_memory_bytes gauge
+ecommerce_nodejs_external_memory_bytes 3919690
+
+# HELP ecommerce_nodejs_heap_space_size_total_bytes Process heap space size total from Node.js in bytes.
+# TYPE ecommerce_nodejs_heap_space_size_total_bytes gauge
+ecommerce_nodejs_heap_space_size_total_bytes{space="read_only"} 0
+ecommerce_nodejs_heap_space_size_total_bytes{space="new"} 1048576
+ecommerce_nodejs_heap_space_size_total_bytes{space="old"} 21807104
+ecommerce_nodejs_heap_space_size_total_bytes{space="code"} 1310720
+ecommerce_nodejs_heap_space_size_total_bytes{space="shared"} 0
+ecommerce_nodejs_heap_space_size_total_bytes{space="trusted"} 3457024
+ecommerce_nodejs_heap_space_size_total_bytes{space="new_large_object"} 0
+ecommerce_nodejs_heap_space_size_total_bytes{space="large_object"} 16293888
+ecommerce_nodejs_heap_space_size_total_bytes{space="code_large_object"} 0
+ecommerce_nodejs_heap_space_size_total_bytes{space="shared_large_object"} 0
+ecommerce_nodejs_heap_space_size_total_bytes{space="trusted_large_object"} 0
+
+# HELP ecommerce_nodejs_heap_space_size_used_bytes Process heap space size used from Node.js in bytes.
+# TYPE ecommerce_nodejs_heap_space_size_used_bytes gauge
+ecommerce_nodejs_heap_space_size_used_bytes{space="read_only"} 0
+ecommerce_nodejs_heap_space_size_used_bytes{space="new"} 211272
+ecommerce_nodejs_heap_space_size_used_bytes{space="old"} 20458800
+ecommerce_nodejs_heap_space_size_used_bytes{space="code"} 1206080
+ecommerce_nodejs_heap_space_size_used_bytes{space="shared"} 0
+ecommerce_nodejs_heap_space_size_used_bytes{space="trusted"} 2938160
+ecommerce_nodejs_heap_space_size_used_bytes{space="new_large_object"} 0
+ecommerce_nodejs_heap_space_size_used_bytes{space="large_object"} 16251840
+ecommerce_nodejs_heap_space_size_used_bytes{space="code_large_object"} 0
+ecommerce_nodejs_heap_space_size_used_bytes{space="shared_large_object"} 0
+ecommerce_nodejs_heap_space_size_used_bytes{space="trusted_large_object"} 0
+
+# HELP ecommerce_nodejs_heap_space_size_available_bytes Process heap space size available from Node.js in bytes.
+# TYPE ecommerce_nodejs_heap_space_size_available_bytes gauge
+ecommerce_nodejs_heap_space_size_available_bytes{space="read_only"} 0
+ecommerce_nodejs_heap_space_size_available_bytes{space="new"} 819640
+ecommerce_nodejs_heap_space_size_available_bytes{space="old"} 934080
+ecommerce_nodejs_heap_space_size_available_bytes{space="code"} 22560
+ecommerce_nodejs_heap_space_size_available_bytes{space="shared"} 0
+ecommerce_nodejs_heap_space_size_available_bytes{space="trusted"} 456680
+ecommerce_nodejs_heap_space_size_available_bytes{space="new_large_object"} 1048576
+ecommerce_nodejs_heap_space_size_available_bytes{space="large_object"} 0
+ecommerce_nodejs_heap_space_size_available_bytes{space="code_large_object"} 0
+ecommerce_nodejs_heap_space_size_available_bytes{space="shared_large_object"} 0
+ecommerce_nodejs_heap_space_size_available_bytes{space="trusted_large_object"} 0
+
+# HELP ecommerce_nodejs_version_info Node.js version info.
+# TYPE ecommerce_nodejs_version_info gauge
+ecommerce_nodejs_version_info{version="v22.22.3",major="22",minor="22",patch="3"} 1
+
+# HELP ecommerce_nodejs_gc_duration_seconds Garbage collection duration by kind, one of major, minor, incremental or weakcb.
+# TYPE ecommerce_nodejs_gc_duration_seconds histogram
+ecommerce_nodejs_gc_duration_seconds_bucket{le="0.001",kind="incremental"} 0
+ecommerce_nodejs_gc_duration_seconds_bucket{le="0.01",kind="incremental"} 2
+ecommerce_nodejs_gc_duration_seconds_bucket{le="0.1",kind="incremental"} 2
+ecommerce_nodejs_gc_duration_seconds_bucket{le="1",kind="incremental"} 2
+ecommerce_nodejs_gc_duration_seconds_bucket{le="2",kind="incremental"} 2
+ecommerce_nodejs_gc_duration_seconds_bucket{le="5",kind="incremental"} 2
+ecommerce_nodejs_gc_duration_seconds_bucket{le="+Inf",kind="incremental"} 2
+ecommerce_nodejs_gc_duration_seconds_sum{kind="incremental"} 0.005431146025657654
+ecommerce_nodejs_gc_duration_seconds_count{kind="incremental"} 2
+ecommerce_nodejs_gc_duration_seconds_bucket{le="0.001",kind="major"} 0
+ecommerce_nodejs_gc_duration_seconds_bucket{le="0.01",kind="major"} 0
+ecommerce_nodejs_gc_duration_seconds_bucket{le="0.1",kind="major"} 2
+ecommerce_nodejs_gc_duration_seconds_bucket{le="1",kind="major"} 2
+ecommerce_nodejs_gc_duration_seconds_bucket{le="2",kind="major"} 2
+ecommerce_nodejs_gc_duration_seconds_bucket{le="5",kind="major"} 2
+ecommerce_nodejs_gc_duration_seconds_bucket{le="+Inf",kind="major"} 2
+ecommerce_nodejs_gc_duration_seconds_sum{kind="major"} 0.08963618195056915
+ecommerce_nodejs_gc_duration_seconds_count{kind="major"} 2
+ecommerce_nodejs_gc_duration_seconds_bucket{le="0.001",kind="minor"} 2
+ecommerce_nodejs_gc_duration_seconds_bucket{le="0.01",kind="minor"} 2
+ecommerce_nodejs_gc_duration_seconds_bucket{le="0.1",kind="minor"} 2
+ecommerce_nodejs_gc_duration_seconds_bucket{le="1",kind="minor"} 2
+ecommerce_nodejs_gc_duration_seconds_bucket{le="2",kind="minor"} 2
+ecommerce_nodejs_gc_duration_seconds_bucket{le="5",kind="minor"} 2
+ecommerce_nodejs_gc_duration_seconds_bucket{le="+Inf",kind="minor"} 2
+ecommerce_nodejs_gc_duration_seconds_sum{kind="minor"} 0.0015782710313796996
+ecommerce_nodejs_gc_duration_seconds_count{kind="minor"} 2
+
+# HELP ecommerce_app_info Application version and environment information
+# TYPE ecommerce_app_info gauge
+ecommerce_app_info{app="ecommerce-app",version="v2.0.0",environment="green"} 1

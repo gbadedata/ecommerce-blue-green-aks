@@ -1,0 +1,8 @@
+server/src/components/app/app.controller.ts:17:  getVersion() {
+server/src/components/app/app.controller.ts:18:    return this.appService.getVersion();
+server/src/components/app/app.service.ts:421:  getVersion() {
+server/src/components/app/app.service.ts:424:      version: process.env.APP_VERSION || 'v1.0.0',
+server/src/components/app/app.service.ts:425:      environment: process.env.APP_ENV || 'blue',
+server/src/components/app/app.controller.spec.ts:10:    process.env.APP_VERSION = 'v1.0.0';
+server/src/components/app/app.controller.spec.ts:11:    process.env.APP_ENV = 'blue';
+server/src/components/app/app.controller.spec.ts:29:      expect(appController.getVersion()).toEqual(

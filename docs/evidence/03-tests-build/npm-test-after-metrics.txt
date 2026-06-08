@@ -1,0 +1,16 @@
+
+> server@1.0.0 test
+> jest
+
+PASS src/components/metrics/metrics.controller.spec.ts
+PASS src/components/app/app.controller.spec.ts
+PASS src/components/users/users.service.spec.ts
+PASS src/components/auth/auth.service.spec.ts
+PASS src/components/auth/auth.controller.spec.ts
+PASS src/components/users/users.controller.spec.ts
+
+Test Suites: 6 passed, 6 total
+Tests:       7 passed, 7 total
+Snapshots:   0 total
+Time:        5.849 s, estimated 9 s
+Ran all test suites.

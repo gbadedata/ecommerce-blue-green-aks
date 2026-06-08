@@ -1,0 +1,14 @@
+kube-prometheus-stack was installed successfully using Helm.
+
+Command used:
+helm upgrade --install monitoring prometheus-community/kube-prometheus-stack --namespace monitoring
+
+Sensitive Helm output related to Grafana admin password retrieval was intentionally removed before committing evidence to GitHub.
+
+Validation evidence is provided separately through:
+- monitoring-pods-ready.txt
+- monitoring-services.txt
+- ecommerce-servicemonitor-list.txt
+- prometheus-ecommerce-targets.txt
+- prometheus-ecommerce-app-info-summary.txt
+- monitoring-summary.txt

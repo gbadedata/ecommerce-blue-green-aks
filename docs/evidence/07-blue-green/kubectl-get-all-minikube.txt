@@ -1,0 +1,28 @@
+NAME                                   READY   STATUS    RESTARTS       AGE     IP            NODE       NOMINATED NODE   READINESS GATES
+pod/ecommerce-blue-85f5dc4c57-slrpc    1/1     Running   0              49s     10.244.0.22   minikube   <none>           <none>
+pod/ecommerce-blue-85f5dc4c57-zvg6x    1/1     Running   0              49s     10.244.0.19   minikube   <none>           <none>
+pod/ecommerce-green-5989dd5746-j4hq4   1/1     Running   0              47s     10.244.0.21   minikube   <none>           <none>
+pod/ecommerce-green-5989dd5746-vbd9k   1/1     Running   0              47s     10.244.0.20   minikube   <none>           <none>
+pod/shopswift-blue-589dff6c89-g2dj8    1/1     Running   0              5d18h   10.244.0.7    minikube   <none>           <none>
+pod/shopswift-blue-589dff6c89-q22s2    1/1     Running   1 (4d1h ago)   5d18h   10.244.0.8    minikube   <none>           <none>
+pod/shopswift-green-8579dcbbb7-vdq5g   1/1     Running   0              5d18h   10.244.0.11   minikube   <none>           <none>
+pod/shopswift-green-8579dcbbb7-wlmq8   1/1     Running   0              5d18h   10.244.0.10   minikube   <none>           <none>
+
+NAME                               TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)   AGE     SELECTOR
+service/ecommerce-service          ClusterIP   10.96.165.65    <none>        80/TCP    43s     app=ecommerce,version=blue
+service/shopswift-active-service   ClusterIP   10.110.192.2    <none>        80/TCP    5d17h   app=shopswift,environment=blue
+service/shopswift-blue-service     ClusterIP   10.97.31.22     <none>        80/TCP    5d18h   app=shopswift,environment=blue
+service/shopswift-green-service    ClusterIP   10.104.170.65   <none>        80/TCP    5d17h   app=shopswift,environment=green
+
+NAME                              READY   UP-TO-DATE   AVAILABLE   AGE     CONTAINERS         IMAGES                       SELECTOR
+deployment.apps/ecommerce-blue    2/2     2            2           50s     ecommerce-server   ecommerce-app:v1.0.0-blue    app=ecommerce,version=blue
+deployment.apps/ecommerce-green   2/2     2            2           48s     ecommerce-server   ecommerce-app:v2.0.0-green   app=ecommerce,version=green
+deployment.apps/shopswift-blue    2/2     2            2           5d18h   shopswift          shopswift:v1.0.0             app=shopswift,environment=blue
+deployment.apps/shopswift-green   2/2     2            2           5d18h   shopswift          shopswift:v2.0.0             app=shopswift,environment=green
+
+NAME                                         DESIRED   CURRENT   READY   AGE     CONTAINERS         IMAGES                       SELECTOR
+replicaset.apps/ecommerce-blue-85f5dc4c57    2         2         2       50s     ecommerce-server   ecommerce-app:v1.0.0-blue    app=ecommerce,pod-template-hash=85f5dc4c57,version=blue
+replicaset.apps/ecommerce-green-5989dd5746   2         2         2       48s     ecommerce-server   ecommerce-app:v2.0.0-green   app=ecommerce,pod-template-hash=5989dd5746,version=green
+replicaset.apps/shopswift-blue-589dff6c89    2         2         2       5d18h   shopswift          shopswift:v1.0.0             app=shopswift,environment=blue,pod-template-hash=589dff6c89
+replicaset.apps/shopswift-green-598d4f594b   0         0         0       5d16h   shopswift          shopswift:v2.0.0             app=shopswift,environment=green,pod-template-hash=598d4f594b
+replicaset.apps/shopswift-green-8579dcbbb7   2         2         2       5d18h   shopswift          shopswift:v2.0.0             app=shopswift,environment=green,pod-template-hash=8579dcbbb7

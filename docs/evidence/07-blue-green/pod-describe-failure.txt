@@ -1,0 +1,538 @@
+Name:             ecommerce-blue-85f5dc4c57-slrpc
+Namespace:        ecommerce-bluegreen
+Priority:         0
+Service Account:  default
+Node:             minikube/192.168.49.2
+Start Time:       Mon, 08 Jun 2026 17:49:20 +0100
+Labels:           app=ecommerce
+                  pod-template-hash=85f5dc4c57
+                  version=blue
+Annotations:      prometheus.io/path: /api/v1/metrics
+                  prometheus.io/port: 3000
+                  prometheus.io/scrape: true
+Status:           Running
+IP:               10.244.0.22
+IPs:
+  IP:           10.244.0.22
+Controlled By:  ReplicaSet/ecommerce-blue-85f5dc4c57
+Containers:
+  ecommerce-server:
+    Container ID:   docker://661dd4dac2c1ae5bf3b66ff24ad506b069409d262c205fb80132d0ccfd5b0440
+    Image:          ecommerce-app:v1.0.0-blue
+    Image ID:       docker://sha256:32578b34e8cbcec1b72ca68634462fcd60fec6e3c9b3db97a5faabf9f5537411
+    Port:           3000/TCP (http)
+    Host Port:      0/TCP (http)
+    State:          Running
+      Started:      Mon, 08 Jun 2026 17:49:31 +0100
+    Ready:          True
+    Restart Count:  0
+    Liveness:       http-get http://:3000/api/v1/health/liveness delay=30s timeout=1s period=20s #success=1 #failure=3
+    Readiness:      http-get http://:3000/api/v1/health/readiness delay=15s timeout=1s period=10s #success=1 #failure=3
+    Environment:
+      DATABASE_URL:  postgresql://postgres:postgres@host.minikube.internal:5433/ecommerce_dev
+      JWT_SECRET:    local-dev-secret-change-later
+      PORT:          3000
+      APP_NAME:      ecommerce-app
+      APP_VERSION:   v1.0.0
+      APP_ENV:       blue
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-bvcx2 (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True 
+  Initialized                 True 
+  Ready                       True 
+  ContainersReady             True 
+  PodScheduled                True 
+Volumes:
+  kube-api-access-bvcx2:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason     Age   From               Message
+  ----     ------     ----  ----               -------
+  Normal   Scheduled  79s   default-scheduler  Successfully assigned ecommerce-bluegreen/ecommerce-blue-85f5dc4c57-slrpc to minikube
+  Normal   Pulled     70s   kubelet            Container image "ecommerce-app:v1.0.0-blue" already present on machine and can be accessed by the pod
+  Normal   Created    68s   kubelet            Container created
+  Normal   Started    67s   kubelet            Container started
+  Warning  Unhealthy  51s   kubelet            Readiness probe failed: Get "http://10.244.0.22:3000/api/v1/health/readiness": dial tcp 10.244.0.22:3000: connect: connection refused
+
+
+Name:             ecommerce-blue-85f5dc4c57-zvg6x
+Namespace:        ecommerce-bluegreen
+Priority:         0
+Service Account:  default
+Node:             minikube/192.168.49.2
+Start Time:       Mon, 08 Jun 2026 17:49:20 +0100
+Labels:           app=ecommerce
+                  pod-template-hash=85f5dc4c57
+                  version=blue
+Annotations:      prometheus.io/path: /api/v1/metrics
+                  prometheus.io/port: 3000
+                  prometheus.io/scrape: true
+Status:           Running
+IP:               10.244.0.19
+IPs:
+  IP:           10.244.0.19
+Controlled By:  ReplicaSet/ecommerce-blue-85f5dc4c57
+Containers:
+  ecommerce-server:
+    Container ID:   docker://d100e7a508f61143af41c63d4d6e8e852d7790deb27f6fe98b6bc88b02fd21f2
+    Image:          ecommerce-app:v1.0.0-blue
+    Image ID:       docker://sha256:32578b34e8cbcec1b72ca68634462fcd60fec6e3c9b3db97a5faabf9f5537411
+    Port:           3000/TCP (http)
+    Host Port:      0/TCP (http)
+    State:          Running
+      Started:      Mon, 08 Jun 2026 17:49:31 +0100
+    Ready:          True
+    Restart Count:  0
+    Liveness:       http-get http://:3000/api/v1/health/liveness delay=30s timeout=1s period=20s #success=1 #failure=3
+    Readiness:      http-get http://:3000/api/v1/health/readiness delay=15s timeout=1s period=10s #success=1 #failure=3
+    Environment:
+      DATABASE_URL:  postgresql://postgres:postgres@host.minikube.internal:5433/ecommerce_dev
+      JWT_SECRET:    local-dev-secret-change-later
+      PORT:          3000
+      APP_NAME:      ecommerce-app
+      APP_VERSION:   v1.0.0
+      APP_ENV:       blue
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-dtkr7 (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True 
+  Initialized                 True 
+  Ready                       True 
+  ContainersReady             True 
+  PodScheduled                True 
+Volumes:
+  kube-api-access-dtkr7:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason     Age   From               Message
+  ----     ------     ----  ----               -------
+  Normal   Scheduled  79s   default-scheduler  Successfully assigned ecommerce-bluegreen/ecommerce-blue-85f5dc4c57-zvg6x to minikube
+  Normal   Pulled     70s   kubelet            Container image "ecommerce-app:v1.0.0-blue" already present on machine and can be accessed by the pod
+  Normal   Created    68s   kubelet            Container created
+  Normal   Started    67s   kubelet            Container started
+  Warning  Unhealthy  51s   kubelet            Readiness probe failed: Get "http://10.244.0.19:3000/api/v1/health/readiness": dial tcp 10.244.0.19:3000: connect: connection refused
+
+
+Name:             ecommerce-green-5989dd5746-j4hq4
+Namespace:        ecommerce-bluegreen
+Priority:         0
+Service Account:  default
+Node:             minikube/192.168.49.2
+Start Time:       Mon, 08 Jun 2026 17:49:21 +0100
+Labels:           app=ecommerce
+                  pod-template-hash=5989dd5746
+                  version=green
+Annotations:      prometheus.io/path: /api/v1/metrics
+                  prometheus.io/port: 3000
+                  prometheus.io/scrape: true
+Status:           Running
+IP:               10.244.0.21
+IPs:
+  IP:           10.244.0.21
+Controlled By:  ReplicaSet/ecommerce-green-5989dd5746
+Containers:
+  ecommerce-server:
+    Container ID:   docker://5536f46332474ecdb38e011eeed20d05fd9a6cdc497daa556391766a0895328c
+    Image:          ecommerce-app:v2.0.0-green
+    Image ID:       docker://sha256:b4756577d0bd89f7b6787c9a1393b5b387b91355df7f45156f5a43280c0d2776
+    Port:           3000/TCP (http)
+    Host Port:      0/TCP (http)
+    State:          Running
+      Started:      Mon, 08 Jun 2026 17:49:31 +0100
+    Ready:          True
+    Restart Count:  0
+    Liveness:       http-get http://:3000/api/v1/health/liveness delay=30s timeout=1s period=20s #success=1 #failure=3
+    Readiness:      http-get http://:3000/api/v1/health/readiness delay=15s timeout=1s period=10s #success=1 #failure=3
+    Environment:
+      DATABASE_URL:  postgresql://postgres:postgres@host.minikube.internal:5433/ecommerce_dev
+      JWT_SECRET:    local-dev-secret-change-later
+      PORT:          3000
+      APP_NAME:      ecommerce-app
+      APP_VERSION:   v2.0.0
+      APP_ENV:       green
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-b2gsc (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True 
+  Initialized                 True 
+  Ready                       True 
+  ContainersReady             True 
+  PodScheduled                True 
+Volumes:
+  kube-api-access-b2gsc:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason     Age   From               Message
+  ----     ------     ----  ----               -------
+  Normal   Scheduled  78s   default-scheduler  Successfully assigned ecommerce-bluegreen/ecommerce-green-5989dd5746-j4hq4 to minikube
+  Normal   Pulled     70s   kubelet            Container image "ecommerce-app:v2.0.0-green" already present on machine and can be accessed by the pod
+  Normal   Created    68s   kubelet            Container created
+  Normal   Started    67s   kubelet            Container started
+  Warning  Unhealthy  51s   kubelet            Readiness probe failed: Get "http://10.244.0.21:3000/api/v1/health/readiness": dial tcp 10.244.0.21:3000: connect: connection refused
+
+
+Name:             ecommerce-green-5989dd5746-vbd9k
+Namespace:        ecommerce-bluegreen
+Priority:         0
+Service Account:  default
+Node:             minikube/192.168.49.2
+Start Time:       Mon, 08 Jun 2026 17:49:21 +0100
+Labels:           app=ecommerce
+                  pod-template-hash=5989dd5746
+                  version=green
+Annotations:      prometheus.io/path: /api/v1/metrics
+                  prometheus.io/port: 3000
+                  prometheus.io/scrape: true
+Status:           Running
+IP:               10.244.0.20
+IPs:
+  IP:           10.244.0.20
+Controlled By:  ReplicaSet/ecommerce-green-5989dd5746
+Containers:
+  ecommerce-server:
+    Container ID:   docker://414baf50546aedda0b941e7fff9b018f1c26458827b18621fd462eacf17f205a
+    Image:          ecommerce-app:v2.0.0-green
+    Image ID:       docker://sha256:b4756577d0bd89f7b6787c9a1393b5b387b91355df7f45156f5a43280c0d2776
+    Port:           3000/TCP (http)
+    Host Port:      0/TCP (http)
+    State:          Running
+      Started:      Mon, 08 Jun 2026 17:49:31 +0100
+    Ready:          True
+    Restart Count:  0
+    Liveness:       http-get http://:3000/api/v1/health/liveness delay=30s timeout=1s period=20s #success=1 #failure=3
+    Readiness:      http-get http://:3000/api/v1/health/readiness delay=15s timeout=1s period=10s #success=1 #failure=3
+    Environment:
+      DATABASE_URL:  postgresql://postgres:postgres@host.minikube.internal:5433/ecommerce_dev
+      JWT_SECRET:    local-dev-secret-change-later
+      PORT:          3000
+      APP_NAME:      ecommerce-app
+      APP_VERSION:   v2.0.0
+      APP_ENV:       green
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-kbtp2 (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True 
+  Initialized                 True 
+  Ready                       True 
+  ContainersReady             True 
+  PodScheduled                True 
+Volumes:
+  kube-api-access-kbtp2:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason     Age   From               Message
+  ----     ------     ----  ----               -------
+  Normal   Scheduled  78s   default-scheduler  Successfully assigned ecommerce-bluegreen/ecommerce-green-5989dd5746-vbd9k to minikube
+  Normal   Pulled     70s   kubelet            Container image "ecommerce-app:v2.0.0-green" already present on machine and can be accessed by the pod
+  Normal   Created    68s   kubelet            Container created
+  Normal   Started    67s   kubelet            Container started
+  Warning  Unhealthy  51s   kubelet            Readiness probe failed: Get "http://10.244.0.20:3000/api/v1/health/readiness": dial tcp 10.244.0.20:3000: connect: connection refused
+
+
+Name:             shopswift-blue-589dff6c89-g2dj8
+Namespace:        ecommerce-bluegreen
+Priority:         0
+Service Account:  default
+Node:             minikube/192.168.49.2
+Start Time:       Tue, 02 Jun 2026 23:14:47 +0100
+Labels:           app=shopswift
+                  environment=blue
+                  pod-template-hash=589dff6c89
+                  version=v1.0.0
+Annotations:      <none>
+Status:           Running
+IP:               10.244.0.7
+IPs:
+  IP:           10.244.0.7
+Controlled By:  ReplicaSet/shopswift-blue-589dff6c89
+Containers:
+  shopswift:
+    Container ID:   docker://ef96575c334576a0ca65f2ef375fb6112a1c0a52c0a99cc8a7fb70a4f288783d
+    Image:          shopswift:v1.0.0
+    Image ID:       docker://sha256:e1d2dce055b6c9a90d499946cded648e5ec8ba121fe39bb716be4e51917d9326
+    Port:           3000/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Tue, 02 Jun 2026 23:14:47 +0100
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     300m
+      memory:  256Mi
+    Requests:
+      cpu:      100m
+      memory:   128Mi
+    Liveness:   http-get http://:3000/health delay=15s timeout=3s period=20s #success=1 #failure=3
+    Readiness:  http-get http://:3000/ready delay=5s timeout=3s period=10s #success=1 #failure=3
+    Environment:
+      APP_NAME:     ShopSwift
+      APP_VERSION:  v1.0.0
+      APP_ENV:      blue
+      GIT_COMMIT:   minikube-blue
+      PORT:         3000
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-vp55v (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True 
+  Initialized                 True 
+  Ready                       True 
+  ContainersReady             True 
+  PodScheduled                True 
+Volumes:
+  kube-api-access-vp55v:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   Burstable
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason     Age                  From     Message
+  ----     ------     ----                 ----     -------
+  Warning  Unhealthy  47m (x52 over 5d6h)  kubelet  Readiness probe failed: Get "http://10.244.0.7:3000/ready": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+  Warning  Unhealthy  16m (x28 over 5d6h)  kubelet  Liveness probe failed: Get "http://10.244.0.7:3000/health": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+
+
+Name:             shopswift-blue-589dff6c89-q22s2
+Namespace:        ecommerce-bluegreen
+Priority:         0
+Service Account:  default
+Node:             minikube/192.168.49.2
+Start Time:       Tue, 02 Jun 2026 23:14:47 +0100
+Labels:           app=shopswift
+                  environment=blue
+                  pod-template-hash=589dff6c89
+                  version=v1.0.0
+Annotations:      <none>
+Status:           Running
+IP:               10.244.0.8
+IPs:
+  IP:           10.244.0.8
+Controlled By:  ReplicaSet/shopswift-blue-589dff6c89
+Containers:
+  shopswift:
+    Container ID:   docker://bbd25c034889159e34beb2bb83ed8718daf3dc227e7e8872c8f202b87745d9e3
+    Image:          shopswift:v1.0.0
+    Image ID:       docker://sha256:e1d2dce055b6c9a90d499946cded648e5ec8ba121fe39bb716be4e51917d9326
+    Port:           3000/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Thu, 04 Jun 2026 16:26:30 +0100
+    Last State:     Terminated
+      Reason:       Error
+      Exit Code:    137
+      Started:      Tue, 02 Jun 2026 23:14:47 +0100
+      Finished:     Thu, 04 Jun 2026 16:26:28 +0100
+    Ready:          True
+    Restart Count:  1
+    Limits:
+      cpu:     300m
+      memory:  256Mi
+    Requests:
+      cpu:      100m
+      memory:   128Mi
+    Liveness:   http-get http://:3000/health delay=15s timeout=3s period=20s #success=1 #failure=3
+    Readiness:  http-get http://:3000/ready delay=5s timeout=3s period=10s #success=1 #failure=3
+    Environment:
+      APP_NAME:     ShopSwift
+      APP_VERSION:  v1.0.0
+      APP_ENV:      blue
+      GIT_COMMIT:   minikube-blue
+      PORT:         3000
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-vkhnh (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True 
+  Initialized                 True 
+  Ready                       True 
+  ContainersReady             True 
+  PodScheduled                True 
+Volumes:
+  kube-api-access-vkhnh:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   Burstable
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:                      <none>
+
+
+Name:             shopswift-green-8579dcbbb7-vdq5g
+Namespace:        ecommerce-bluegreen
+Priority:         0
+Service Account:  default
+Node:             minikube/192.168.49.2
+Start Time:       Tue, 02 Jun 2026 23:49:35 +0100
+Labels:           app=shopswift
+                  environment=green
+                  pod-template-hash=8579dcbbb7
+                  version=v2.0.0
+Annotations:      <none>
+Status:           Running
+IP:               10.244.0.11
+IPs:
+  IP:           10.244.0.11
+Controlled By:  ReplicaSet/shopswift-green-8579dcbbb7
+Containers:
+  shopswift:
+    Container ID:   docker://f7ba6063b09acf525f6103902cdceedeec6a2c37e187b5f29524c2500d7f9d03
+    Image:          shopswift:v2.0.0
+    Image ID:       docker://sha256:e1d2dce055b6c9a90d499946cded648e5ec8ba121fe39bb716be4e51917d9326
+    Port:           3000/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Tue, 02 Jun 2026 23:49:36 +0100
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     300m
+      memory:  256Mi
+    Requests:
+      cpu:      100m
+      memory:   128Mi
+    Liveness:   http-get http://:3000/health delay=15s timeout=3s period=20s #success=1 #failure=3
+    Readiness:  http-get http://:3000/ready delay=5s timeout=3s period=10s #success=1 #failure=3
+    Environment:
+      APP_NAME:     ShopSwift
+      APP_VERSION:  v2.0.0
+      APP_ENV:      green
+      GIT_COMMIT:   minikube-green
+      PORT:         3000
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-phlfx (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True 
+  Initialized                 True 
+  Ready                       True 
+  ContainersReady             True 
+  PodScheduled                True 
+Volumes:
+  kube-api-access-phlfx:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   Burstable
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason     Age                  From     Message
+  ----     ------     ----                 ----     -------
+  Warning  Unhealthy  20m (x21 over 5d6h)  kubelet  Liveness probe failed: Get "http://10.244.0.11:3000/health": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+
+
+Name:             shopswift-green-8579dcbbb7-wlmq8
+Namespace:        ecommerce-bluegreen
+Priority:         0
+Service Account:  default
+Node:             minikube/192.168.49.2
+Start Time:       Tue, 02 Jun 2026 23:49:35 +0100
+Labels:           app=shopswift
+                  environment=green
+                  pod-template-hash=8579dcbbb7
+                  version=v2.0.0
+Annotations:      <none>
+Status:           Running
+IP:               10.244.0.10
+IPs:
+  IP:           10.244.0.10
+Controlled By:  ReplicaSet/shopswift-green-8579dcbbb7
+Containers:
+  shopswift:
+    Container ID:   docker://e2089b4da358d20beef6528413119fccbd834a0bc3197001fb608e4f93387c1b
+    Image:          shopswift:v2.0.0
+    Image ID:       docker://sha256:e1d2dce055b6c9a90d499946cded648e5ec8ba121fe39bb716be4e51917d9326
+    Port:           3000/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Tue, 02 Jun 2026 23:49:36 +0100
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     300m
+      memory:  256Mi
+    Requests:
+      cpu:      100m
+      memory:   128Mi
+    Liveness:   http-get http://:3000/health delay=15s timeout=3s period=20s #success=1 #failure=3
+    Readiness:  http-get http://:3000/ready delay=5s timeout=3s period=10s #success=1 #failure=3
+    Environment:
+      APP_NAME:     ShopSwift
+      APP_VERSION:  v2.0.0
+      APP_ENV:      green
+      GIT_COMMIT:   minikube-green
+      PORT:         3000
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-dp6vf (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True 
+  Initialized                 True 
+  Ready                       True 
+  ContainersReady             True 
+  PodScheduled                True 
+Volumes:
+  kube-api-access-dp6vf:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   Burstable
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason     Age                  From     Message
+  ----     ------     ----                 ----     -------
+  Warning  Unhealthy  20m (x29 over 5d6h)  kubelet  Liveness probe failed: Get "http://10.244.0.10:3000/health": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+  Warning  Unhealthy  20m (x52 over 5d6h)  kubelet  Readiness probe failed: Get "http://10.244.0.10:3000/ready": context deadline exceeded (Client.Timeout exceeded while awaiting headers)

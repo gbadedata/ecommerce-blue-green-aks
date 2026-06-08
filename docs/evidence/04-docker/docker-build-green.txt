@@ -1,0 +1,82 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 725B 0.0s done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for docker.io/library/node:22-alpine
+#2 ...
+
+#3 [auth] library/node:pull token for registry-1.docker.io
+#3 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/node:22-alpine
+#2 DONE 1.4s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 133B done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 DONE 0.0s
+
+#6 [builder  1/11] FROM docker.io/library/node:22-alpine@sha256:968df39aedcea65eeb078fb336ed7191baf48f972b4479711397108be0966920
+#6 resolve docker.io/library/node:22-alpine@sha256:968df39aedcea65eeb078fb336ed7191baf48f972b4479711397108be0966920 0.0s done
+#6 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 3.80kB 0.1s done
+#5 DONE 0.2s
+
+#7 [builder 11/11] RUN npm run build
+#7 CACHED
+
+#8 [builder  3/11] COPY package*.json ./
+#8 CACHED
+
+#9 [builder  5/11] COPY prisma.config.ts ./
+#9 CACHED
+
+#10 [builder  4/11] COPY prisma ./prisma
+#10 CACHED
+
+#11 [builder  6/11] COPY tsconfig*.json ./
+#11 CACHED
+
+#12 [builder 10/11] RUN npx prisma generate
+#12 CACHED
+
+#13 [runtime 7/9] COPY --from=builder /app/dist ./dist
+#13 CACHED
+
+#14 [builder  2/11] WORKDIR /app
+#14 CACHED
+
+#15 [builder  9/11] COPY src ./src
+#15 CACHED
+
+#16 [builder  7/11] COPY nest-cli.json ./
+#16 CACHED
+
+#17 [runtime 8/9] COPY --from=builder /app/generated ./generated
+#17 CACHED
+
+#18 [builder  8/11] RUN npm ci
+#18 CACHED
+
+#19 [runtime 6/9] RUN npm ci --omit=dev
+#19 CACHED
+
+#20 [runtime 9/9] RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+#20 CACHED
+
+#21 exporting to image
+#21 exporting layers 0.0s done
+#21 exporting manifest sha256:2c854ced20e528ff233b64fc252455e4b0a994bbd6a5e190f3fd7459025e59e3 done
+#21 exporting config sha256:71585e4c86d9e27b219ff8b66823a6d9382af44437945076f7e878a2b31b8f92 done
+#21 exporting attestation manifest sha256:eb489e77d218ebcf73191047ff51b912d205d5ab28bcccb55035ca7ac5a98f43
+#21 exporting attestation manifest sha256:eb489e77d218ebcf73191047ff51b912d205d5ab28bcccb55035ca7ac5a98f43 0.1s done
+#21 exporting manifest list sha256:2f55d8e633285cb8ff8d368ab513b4794c636adb2493a148ca4d537e5808b971 0.0s done
+#21 naming to docker.io/library/ecommerce-app:v2.0.0-green 0.0s done
+#21 unpacking to docker.io/library/ecommerce-app:v2.0.0-green 0.1s done
+#21 DONE 0.5s

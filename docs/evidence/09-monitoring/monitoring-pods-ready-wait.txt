@@ -1,0 +1,6 @@
+pod/alertmanager-monitoring-kube-prometheus-alertmanager-0 condition met
+pod/monitoring-grafana-79b9876bb9-vb86p condition met
+pod/monitoring-kube-prometheus-operator-b79ccf6cd-gr9lb condition met
+pod/monitoring-kube-state-metrics-868694bc4b-rls85 condition met
+pod/monitoring-prometheus-node-exporter-wxvb7 condition met
+pod/prometheus-monitoring-kube-prometheus-prometheus-0 condition met

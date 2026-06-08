@@ -1,0 +1,18 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: ecommerce-service-monitor
+  namespace: ecommerce-bluegreen
+  labels:
+    release: monitoring
+spec:
+  selector:
+    matchLabels:
+      app: ecommerce
+  namespaceSelector:
+    matchNames:
+      - ecommerce-bluegreen
+  endpoints:
+    - port: http
+      path: /api/v1/metrics
+      interval: 15s

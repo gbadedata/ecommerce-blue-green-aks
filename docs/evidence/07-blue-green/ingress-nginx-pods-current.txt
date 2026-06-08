@@ -1,0 +1,4 @@
+NAME                                       READY   STATUS      RESTARTS   AGE     IP            NODE       NOMINATED NODE   READINESS GATES
+ingress-nginx-admission-create-2kzw8       0/1     Completed   0          5d18h   10.244.0.5    minikube   <none>           <none>
+ingress-nginx-admission-patch-p8df9        0/1     Completed   1          5d18h   10.244.0.4    minikube   <none>           <none>
+ingress-nginx-controller-579bc6d4f-cbtcl   1/1     Running     0          5d17h   10.244.0.15   minikube   <none>           <none>
