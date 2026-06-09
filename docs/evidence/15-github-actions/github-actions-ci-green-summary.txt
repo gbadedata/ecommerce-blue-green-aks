@@ -1,0 +1,11 @@
+GitHub Actions CI validation summary:
+
+- The GitHub Actions CI workflow was added to the repository.
+- The workflow is triggered by push, pull_request, and workflow_dispatch.
+- The backend CI job installs dependencies, generates the Prisma client, runs tests, and builds the NestJS backend.
+- The Docker security job builds both Blue and Green Docker images.
+- The workflow scans both images using Trivy with HIGH and CRITICAL severity gating.
+- The first workflow attempt failed because the Trivy action version was referenced without the required v-prefixed release tag.
+- The workflow was fixed by updating the Trivy action reference.
+- After the fix, the GitHub Actions CI workflow completed successfully.
+- Final result: GitHub Actions CI is green.
