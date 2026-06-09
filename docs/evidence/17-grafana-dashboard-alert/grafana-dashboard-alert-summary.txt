@@ -1,0 +1,17 @@
+Grafana dashboard and alert validation summary:
+
+- kube-prometheus-stack was installed on AKS.
+- Prometheus and Grafana were kept internal using ClusterIP services.
+- Grafana was accessed locally using kubectl port-forward.
+- The ecommerce ServiceMonitor selected ecommerce-service in the ecommerce-bluegreen namespace.
+- Prometheus successfully scraped ecommerce_app_info from the active Green pods deployed by GitHub Actions.
+- A Prometheus alert rule named EcommerceAppInfoMissing was created.
+- The alert rule detects when ecommerce_app_info disappears from ecommerce-service.
+- The alert rule was queryable through the Prometheus API.
+- A Grafana dashboard named Ecommerce Blue-Green Deployment Overview was created.
+- The dashboard includes panels for active ecommerce version, scraped pod count, and Node.js event loop lag.
+- The dashboard was exported as JSON evidence.
+- Grafana was not exposed publicly, which reduced security and cost risk.
+
+Result:
+The Grafana dashboard and alert requirement was validated on AKS.

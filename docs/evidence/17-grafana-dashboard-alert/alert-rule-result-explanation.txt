@@ -1,0 +1,12 @@
+Alert rule validation result:
+
+The Prometheus alert rule EcommerceAppInfoMissing was successfully created and loaded into Prometheus.
+
+The rule checks whether ecommerce_app_info is absent for ecommerce-service.
+
+The alert was not firing during validation because ecommerce_app_info was present and Prometheus was successfully scraping the ecommerce application.
+
+This is the expected healthy result:
+- Alert rule exists
+- Application metric exists
+- Alert is not firing

@@ -1,0 +1,8 @@
+NAME                                                        READY   STATUS    RESTARTS   AGE    IP             NODE                                NOMINATED NODE   READINESS GATES
+alertmanager-kube-prometheus-stack-alertmanager-0           2/2     Running   0          101s   10.244.1.177   aks-nodepool1-34200280-vmss000000   <none>           <none>
+kube-prometheus-stack-grafana-b5864494b-nhm7r               3/3     Running   0          106s   10.244.0.226   aks-nodepool1-34200280-vmss000001   <none>           <none>
+kube-prometheus-stack-kube-state-metrics-6b747b7c5f-tffmw   1/1     Running   0          106s   10.244.1.4     aks-nodepool1-34200280-vmss000000   <none>           <none>
+kube-prometheus-stack-operator-856459d47f-r6qss             1/1     Running   0          106s   10.244.1.251   aks-nodepool1-34200280-vmss000000   <none>           <none>
+kube-prometheus-stack-prometheus-node-exporter-2bw96        1/1     Running   0          106s   10.224.0.4     aks-nodepool1-34200280-vmss000000   <none>           <none>
+kube-prometheus-stack-prometheus-node-exporter-p9lnw        1/1     Running   0          106s   10.224.0.5     aks-nodepool1-34200280-vmss000001   <none>           <none>
+prometheus-kube-prometheus-stack-prometheus-0               2/2     Running   0          101s   10.244.0.195   aks-nodepool1-34200280-vmss000001   <none>           <none>

@@ -1,0 +1,29 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"monitoring.coreos.com/v1","kind":"PrometheusRule","metadata":{"annotations":{},"labels":{"release":"kube-prometheus-stack"},"name":"ecommerce-alert-rules","namespace":"monitoring"},"spec":{"groups":[{"name":"ecommerce.rules","rules":[{"alert":"EcommerceAppInfoMissing","annotations":{"description":"Prometheus has not seen ecommerce_app_info from ecommerce-service for at least 2 minutes.","summary":"Ecommerce app metric is missing"},"expr":"absent(ecommerce_app_info{job=\"ecommerce-service\"})","for":"2m","labels":{"service":"ecommerce","severity":"warning"}}]}]}}
+    prometheus-operator-validated: "true"
+  creationTimestamp: "2026-06-09T12:52:36Z"
+  generation: 1
+  labels:
+    release: kube-prometheus-stack
+  name: ecommerce-alert-rules
+  namespace: monitoring
+  resourceVersion: "17448"
+  uid: 71721da1-79aa-413a-9f64-4053ed43f83a
+spec:
+  groups:
+  - name: ecommerce.rules
+    rules:
+    - alert: EcommerceAppInfoMissing
+      annotations:
+        description: Prometheus has not seen ecommerce_app_info from ecommerce-service
+          for at least 2 minutes.
+        summary: Ecommerce app metric is missing
+      expr: absent(ecommerce_app_info{job="ecommerce-service"})
+      for: 2m
+      labels:
+        service: ecommerce
+        severity: warning

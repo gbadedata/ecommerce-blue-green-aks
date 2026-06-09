@@ -1,0 +1,9 @@
+completed	success	Add GitHub Actions Azure deployment evidence	Minikube - Blue Green Validation	main	push	27205608219	2m46s	2026-06-09T12:18:56Z
+completed	success	Add GitHub Actions Azure deployment evidence	CI - Build Test Docker Scan	main	push	27205608131	1m58s	2026-06-09T12:18:56Z
+completed	success	Azure - Blue Green Deploy to AKS	Azure - Blue Green Deploy to AKS	main	workflow_dispatch	27204706136	3m6s	2026-06-09T12:01:30Z
+completed	success	Add GitHub Actions Minikube success evidence	Minikube - Blue Green Validation	main	push	27203589625	2m43s	2026-06-09T11:39:16Z
+completed	success	Add GitHub Actions Minikube success evidence	CI - Build Test Docker Scan	main	push	27203589613	2m4s	2026-06-09T11:39:16Z
+completed	success	Minikube - Blue Green Validation	Minikube - Blue Green Validation	main	workflow_dispatch	27202884238	2m50s	2026-06-09T11:25:00Z
+completed	success	Add GitHub Actions CI success evidence	CI - Build Test Docker Scan	main	push	27202108529	2m6s	2026-06-09T11:09:55Z
+completed	success	Fix Trivy GitHub Action version	CI - Build Test Docker Scan	main	push	27201676746	2m1s	2026-06-09T11:01:42Z
+completed	failure	Add GitHub Actions CI and deployment workflows	CI - Build Test Docker Scan	main	push	27200354435	48s	2026-06-09T10:34:54Z

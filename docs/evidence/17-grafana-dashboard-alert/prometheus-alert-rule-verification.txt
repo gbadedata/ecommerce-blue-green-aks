@@ -1,0 +1,4 @@
+=== Check alert rule exists ===
+"name":"EcommerceAppInfoMissing"
+
+=== Check whether alert is currently firing ===

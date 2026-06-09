@@ -1,0 +1,1 @@
+prometheusrule.monitoring.coreos.com/ecommerce-alert-rules created

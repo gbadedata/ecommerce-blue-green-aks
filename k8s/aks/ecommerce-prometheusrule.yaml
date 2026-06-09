@@ -1,0 +1,20 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: ecommerce-alert-rules
+  namespace: monitoring
+  labels:
+    release: kube-prometheus-stack
+spec:
+  groups:
+    - name: ecommerce.rules
+      rules:
+        - alert: EcommerceAppInfoMissing
+          expr: absent(ecommerce_app_info{job="ecommerce-service"})
+          for: 2m
+          labels:
+            severity: warning
+            service: ecommerce
+          annotations:
+            summary: Ecommerce app metric is missing
+            description: Prometheus has not seen ecommerce_app_info from ecommerce-service for at least 2 minutes.

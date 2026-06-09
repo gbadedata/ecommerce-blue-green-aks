@@ -1,0 +1,25 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"monitoring.coreos.com/v1","kind":"ServiceMonitor","metadata":{"annotations":{},"labels":{"release":"kube-prometheus-stack"},"name":"ecommerce-service-monitor","namespace":"monitoring"},"spec":{"endpoints":[{"interval":"15s","path":"/api/v1/metrics","port":"http"}],"namespaceSelector":{"matchNames":["ecommerce-bluegreen"]},"selector":{"matchLabels":{"app":"ecommerce"}}}}
+  creationTimestamp: "2026-06-09T12:49:15Z"
+  generation: 1
+  labels:
+    release: kube-prometheus-stack
+  name: ecommerce-service-monitor
+  namespace: monitoring
+  resourceVersion: "16587"
+  uid: 1830597a-9143-4677-9e43-92818b7dc66c
+spec:
+  endpoints:
+  - interval: 15s
+    path: /api/v1/metrics
+    port: http
+  namespaceSelector:
+    matchNames:
+    - ecommerce-bluegreen
+  selector:
+    matchLabels:
+      app: ecommerce
