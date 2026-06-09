@@ -1,0 +1,13 @@
+Final Azure teardown started.
+
+Command used:
+az group delete --name "rg-ecommerce-bluegreen-dev" --yes --no-wait
+
+Resource group:
+rg-ecommerce-bluegreen-dev
+
+Reason:
+All architecture components were validated, including GitHub Actions, ACR, AKS, NGINX Ingress, Azure public LoadBalancer, Blue-Green routing, Prometheus, Grafana dashboard, alert rule, and public metrics validation.
+
+Timestamp:
+Tue Jun  9 15:56:35 UTC 2026

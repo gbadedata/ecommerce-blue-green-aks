@@ -1,0 +1,19 @@
+Final Azure teardown confirmed.
+
+Resource group:
+rg-ecommerce-bluegreen-dev
+
+Final verification:
+az group exists --name "rg-ecommerce-bluegreen-dev" returned false.
+
+Evidence file:
+docs/evidence/20-final-teardown/resource-group-exists-after-final-teardown-3.txt
+
+Related resource group check:
+No project-related resource groups were listed by the final az group list query.
+
+Result:
+The Azure project resources have been deleted successfully. This includes AKS, ACR, Azure LoadBalancer, public IP, node resource groups, and related project resources.
+
+Timestamp:
+Tue Jun  9 16:21:18 UTC 2026
