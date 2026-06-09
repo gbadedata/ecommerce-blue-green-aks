@@ -1,0 +1,13 @@
+AKS cloud monitoring redeployment teardown started.
+
+Command used:
+az group delete --name "rg-ecommerce-bluegreen-dev" --yes --no-wait
+
+Resource group:
+rg-ecommerce-bluegreen-dev
+
+Reason:
+Cloud Prometheus/Grafana monitoring evidence was captured successfully. Resources deleted again to stop Azure costs.
+
+Timestamp:
+Tue Jun  9 01:27:19 UTC 2026
