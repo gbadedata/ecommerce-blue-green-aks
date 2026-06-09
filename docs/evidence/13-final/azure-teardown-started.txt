@@ -1,0 +1,13 @@
+Azure teardown started.
+
+Command used:
+az group delete --name "rg-ecommerce-bluegreen-dev" --yes --no-wait
+
+Resource group:
+rg-ecommerce-bluegreen-dev
+
+Reason:
+Project evidence collection completed. Resources deleted to stop Azure costs.
+
+Timestamp:
+Tue Jun  9 00:00:37 UTC 2026

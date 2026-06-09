@@ -1,0 +1,31 @@
+Final validated architecture:
+
+Developer workstation
+→ Docker build
+→ Trivy image security scan
+→ Azure Container Registry
+→ Azure Kubernetes Service
+→ NGINX Ingress Controller
+→ Azure Public LoadBalancer
+→ ecommerce-ingress
+→ ecommerce-service ClusterIP
+→ Blue and Green ecommerce Pods
+→ temporary PostgreSQL validation Pod
+→ Prometheus-compatible /api/v1/metrics endpoint
+
+Traffic switching method:
+The public Ingress remained stable. The ecommerce-service selector was patched between version=blue and version=green.
+
+Validated behaviours:
+- Blue deployment on AKS
+- Green deployment on AKS
+- Service selector switch from Blue to Green
+- Rollback from Green to Blue
+- In-cluster zero-downtime switch with 60 requests and 0 failures
+- Public AKS Ingress route through Azure LoadBalancer
+- Azure LoadBalancer health probe issue diagnosed and fixed using /healthz annotation
+- Public Ingress response from Green
+- Public Ingress response after switching back to Blue
+
+Final result:
+Full local-to-cloud Blue-Green deployment validation passed.

@@ -1,0 +1,4 @@
+Name                         ResourceGroup               Location    Type                                        Status
+---------------------------  --------------------------  ----------  ------------------------------------------  ---------
+acrecommercebg8070           rg-ecommerce-bluegreen-dev  uksouth     Microsoft.ContainerRegistry/registries      Succeeded
+aks-ecommerce-bluegreen-dev  rg-ecommerce-bluegreen-dev  uksouth     Microsoft.ContainerService/managedClusters  Succeeded

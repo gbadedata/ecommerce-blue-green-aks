@@ -1,0 +1,6 @@
+RESOURCE_GROUP=rg-ecommerce-bluegreen-dev
+LOCATION=uksouth
+ACR_NAME=acrecommercebg8070
+ACR_LOGIN_SERVER=acrecommercebg8070.azurecr.io
+AKS_NAME=aks-ecommerce-bluegreen-dev
+AKS_INGRESS_IP=131.145.96.69

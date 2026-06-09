@@ -1,0 +1,16 @@
+Azure teardown confirmed.
+
+Resource group:
+rg-ecommerce-bluegreen-dev
+
+Final verification:
+az group exists --name "rg-ecommerce-bluegreen-dev" returned false.
+
+Additional verification:
+az resource list and az group show both returned ResourceGroupNotFound.
+
+Result:
+The Azure project resource group has been deleted successfully. AKS, ACR, public LoadBalancer, public IP, and related project resources are no longer present under this resource group.
+
+Timestamp:
+Tue Jun  9 00:14:19 UTC 2026
