@@ -1,0 +1,20 @@
+NAME                                     READY   STATUS    RESTARTS   AGE     IP             NODE                                NOMINATED NODE   READINESS GATES
+pod/ecommerce-blue-75fbc9b6cc-bjt69      1/1     Running   0          3m12s   10.244.1.233   aks-nodepool1-38186595-vmss000000   <none>           <none>
+pod/ecommerce-blue-75fbc9b6cc-wplbr      1/1     Running   0          3m12s   10.244.0.142   aks-nodepool1-38186595-vmss000001   <none>           <none>
+pod/ecommerce-green-956f89f4b-rfgdk      1/1     Running   0          3m11s   10.244.0.184   aks-nodepool1-38186595-vmss000001   <none>           <none>
+pod/ecommerce-green-956f89f4b-xwkqb      1/1     Running   0          3m11s   10.244.1.75    aks-nodepool1-38186595-vmss000000   <none>           <none>
+pod/ecommerce-postgres-775bdd576-bm4vw   1/1     Running   0          3m35s   10.244.0.2     aks-nodepool1-38186595-vmss000001   <none>           <none>
+
+NAME                        TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)    AGE     SELECTOR
+service/ecommerce-service   ClusterIP   10.0.52.180   <none>        80/TCP     3m11s   app=ecommerce,version=blue
+service/postgres-service    ClusterIP   10.0.42.16    <none>        5432/TCP   3m36s   app=ecommerce-postgres
+
+NAME                                 READY   UP-TO-DATE   AVAILABLE   AGE     CONTAINERS         IMAGES                                                     SELECTOR
+deployment.apps/ecommerce-blue       2/2     2            2           3m13s   ecommerce-server   acrecommercebg8070.azurecr.io/ecommerce-app:v1.0.0-blue    app=ecommerce,version=blue
+deployment.apps/ecommerce-green      2/2     2            2           3m12s   ecommerce-server   acrecommercebg8070.azurecr.io/ecommerce-app:v2.0.0-green   app=ecommerce,version=green
+deployment.apps/ecommerce-postgres   1/1     1            1           3m36s   postgres           postgres:16-alpine                                         app=ecommerce-postgres
+
+NAME                                           DESIRED   CURRENT   READY   AGE     CONTAINERS         IMAGES                                                     SELECTOR
+replicaset.apps/ecommerce-blue-75fbc9b6cc      2         2         2       3m13s   ecommerce-server   acrecommercebg8070.azurecr.io/ecommerce-app:v1.0.0-blue    app=ecommerce,pod-template-hash=75fbc9b6cc,version=blue
+replicaset.apps/ecommerce-green-956f89f4b      2         2         2       3m12s   ecommerce-server   acrecommercebg8070.azurecr.io/ecommerce-app:v2.0.0-green   app=ecommerce,pod-template-hash=956f89f4b,version=green
+replicaset.apps/ecommerce-postgres-775bdd576   1         1         1       3m36s   postgres           postgres:16-alpine                                         app=ecommerce-postgres,pod-template-hash=775bdd576

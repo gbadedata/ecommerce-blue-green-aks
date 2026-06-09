@@ -1,0 +1,2 @@
+deployment.apps/ecommerce-postgres created
+service/postgres-service created

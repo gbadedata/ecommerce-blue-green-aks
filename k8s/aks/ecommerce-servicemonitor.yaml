@@ -1,0 +1,18 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: ecommerce-service-monitor
+  namespace: monitoring
+  labels:
+    release: kube-prometheus-stack
+spec:
+  namespaceSelector:
+    matchNames:
+      - ecommerce-bluegreen
+  selector:
+    matchLabels:
+      app: ecommerce
+  endpoints:
+    - port: http
+      path: /api/v1/metrics
+      interval: 15s

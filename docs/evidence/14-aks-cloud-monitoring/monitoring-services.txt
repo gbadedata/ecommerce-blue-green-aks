@@ -1,0 +1,9 @@
+NAME                                             TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)                      AGE   SELECTOR
+alertmanager-operated                            ClusterIP   None           <none>        9093/TCP,9094/TCP,9094/UDP   57s   app.kubernetes.io/name=alertmanager
+kube-prometheus-stack-alertmanager               ClusterIP   10.0.97.10     <none>        9093/TCP,8080/TCP            63s   alertmanager=kube-prometheus-stack-alertmanager,app.kubernetes.io/name=alertmanager
+kube-prometheus-stack-grafana                    ClusterIP   10.0.118.50    <none>        80/TCP                       63s   app.kubernetes.io/instance=kube-prometheus-stack,app.kubernetes.io/name=grafana
+kube-prometheus-stack-kube-state-metrics         ClusterIP   10.0.13.11     <none>        8080/TCP                     63s   app.kubernetes.io/instance=kube-prometheus-stack,app.kubernetes.io/name=kube-state-metrics
+kube-prometheus-stack-operator                   ClusterIP   10.0.225.66    <none>        443/TCP                      63s   app=kube-prometheus-stack-operator,release=kube-prometheus-stack
+kube-prometheus-stack-prometheus                 ClusterIP   10.0.251.221   <none>        9090/TCP,8080/TCP            63s   app.kubernetes.io/name=prometheus,operator.prometheus.io/name=kube-prometheus-stack-prometheus
+kube-prometheus-stack-prometheus-node-exporter   ClusterIP   10.0.212.100   <none>        9100/TCP                     63s   app.kubernetes.io/instance=kube-prometheus-stack,app.kubernetes.io/name=prometheus-node-exporter
+prometheus-operated                              ClusterIP   None           <none>        9090/TCP                     56s   app.kubernetes.io/name=prometheus

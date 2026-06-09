@@ -1,0 +1,4 @@
+acrecommercebg8070.azurecr.io/ecommerce-app:v1.0.0-blue                                               e610cd503887       1.08GB          280MB        
+acrecommercebg8070.azurecr.io/ecommerce-app:v2.0.0-green                                              fd18f1a312c6       1.08GB          280MB        
+ecommerce-app:v1.0.0-blue                                                                             e610cd503887       1.08GB          280MB        
+ecommerce-app:v2.0.0-green                                                                            fd18f1a312c6       1.08GB          280MB        

@@ -1,0 +1,34 @@
+=== Prometheus targets for ecommerce ===
+ecommerce-blue-75fbc9b6cc-bjt69
+ecommerce
+ecommerce-service
+ecommerce-bluegreen
+ecommercebg8070.azurecr.io/ecommerce-app:v1.0.0-blue
+ecommerce-server
+ecommerce-blue-75fbc9b6cc
+ecommerce
+ecommerce-blue-75fbc9b6cc-bjt69
+ecommerce\
+ecommerce-service\
+ecommerce-bluegreen\
+ecommerce\
+ecommerce
+ecommerce-service
+ecommerce-service-monitor/0
+ecommerce-server
+ecommerce-service
+ecommerce-bluegreen
+ecommerce-blue-75fbc9b6cc-bjt69
+ecommerce-service
+ecommerce-service-monitor/0
+ecommerce-blue-75fbc9b6cc-wplbr
+ecommerce
+ecommerce-service
+ecommerce-bluegreen
+ecommercebg8070.azurecr.io/ecommerce-app:v1.0.0-blue
+ecommerce-server
+ecommerce-blue-75fbc9b6cc
+ecommerce
+
+=== ecommerce_app_info query ===
+{"status":"success","data":{"resultType":"vector","result":[{"metric":{"__name__":"ecommerce_app_info","app":"ecommerce-app","container":"ecommerce-server","endpoint":"http","environment":"blue","instance":"10.244.0.142:3000","job":"ecommerce-service","namespace":"ecommerce-bluegreen","pod":"ecommerce-blue-75fbc9b6cc-wplbr","service":"ecommerce-service","version":"v1.0.0"},"value":[1780966517.571,"1"]},{"metric":{"__name__":"ecommerce_app_info","app":"ecommerce-app","container":"ecommerce-server","endpoint":"http","environment":"blue","instance":"10.244.1.233:3000","job":"ecommerce-service","namespace":"ecommerce-bluegreen","pod":"ecommerce-blue-75fbc9b6cc-bjt69","service":"ecommerce-service","version":"v1.0.0"},"value":[1780966517.571,"1"]}]}}

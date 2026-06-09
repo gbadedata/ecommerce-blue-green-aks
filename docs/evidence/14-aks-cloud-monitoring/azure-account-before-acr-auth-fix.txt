@@ -1,0 +1,3 @@
+EnvironmentName    HomeTenantId                          IsDefault    Name    State    TenantDefaultDomain               TenantDisplayName    TenantId
+-----------------  ------------------------------------  -----------  ------  -------  --------------------------------  -------------------  ------------------------------------
+AzureCloud         284fcab9-b353-44fb-8507-c7a3b277c19e  True         OJ      Enabled  gbadedataoutlook.onmicrosoft.com  Default Directory    284fcab9-b353-44fb-8507-c7a3b277c19e

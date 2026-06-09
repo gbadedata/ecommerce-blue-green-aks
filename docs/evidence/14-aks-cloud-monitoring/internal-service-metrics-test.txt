@@ -1,0 +1,7 @@
+=== Version endpoint ===
+{"app":"ecommerce-app","version":"v1.0.0","environment":"blue","status":"ok","timestamp":"2026-06-09T00:46:26.899Z"}
+=== Metrics app info ===
+# HELP ecommerce_app_info Application version and environment information
+# TYPE ecommerce_app_info gauge
+ecommerce_app_info{app="ecommerce-app",version="v1.0.0",environment="blue"} 1
+pod "aks-monitoring-curl-test" deleted from ecommerce-bluegreen namespace

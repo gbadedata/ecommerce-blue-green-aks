@@ -1,0 +1,12 @@
+Grafana cloud monitoring validation:
+
+Grafana was deployed inside AKS using kube-prometheus-stack.
+Grafana was accessed locally using kubectl port-forward.
+The admin password was retrieved from the Kubernetes Secret for temporary access only.
+The real password was not committed to Git.
+
+Validation performed:
+- Opened Grafana through localhost port-forward.
+- Selected the Prometheus data source.
+- Queried ecommerce_app_info.
+- Confirmed the AKS ecommerce workload metrics were visible in Grafana.

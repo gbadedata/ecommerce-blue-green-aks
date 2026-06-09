@@ -1,0 +1,20 @@
+AKS cloud monitoring validation summary:
+
+- AKS was redeployed specifically to validate cloud monitoring.
+- Azure Container Registry was recreated.
+- Blue and Green images were rebuilt, retagged, and pushed to ACR.
+- AKS was recreated and attached to ACR.
+- The ecommerce application was redeployed to AKS.
+- The ecommerce-service exposed the application on port 80 and targeted container port 3000.
+- The application exposed Prometheus-compatible metrics at /api/v1/metrics.
+- kube-prometheus-stack was installed into the monitoring namespace.
+- Prometheus, Grafana, Alertmanager, kube-state-metrics, node-exporter, and the Prometheus Operator all reached Running state.
+- A ServiceMonitor named ecommerce-service-monitor was created in the monitoring namespace.
+- The ServiceMonitor selected the ecommerce-service in the ecommerce-bluegreen namespace.
+- Prometheus successfully scraped ecommerce_app_info from both active Blue pods.
+- The Prometheus query returned version=v1.0.0 and environment=blue.
+- Grafana was accessed using kubectl port-forward, avoiding a public Grafana LoadBalancer.
+- Grafana was used to query ecommerce_app_info from the Prometheus data source.
+
+Result:
+AKS cloud monitoring validation passed.
