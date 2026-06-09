@@ -1,0 +1,105 @@
+name: Minikube - Blue Green Validation
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  minikube-blue-green:
+    name: Validate Blue Green deployment on Minikube
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+      - name: Start Minikube
+        uses: medyagh/setup-minikube@master
+        with:
+          driver: docker
+          kubernetes-version: stable
+
+      - name: Build Blue image inside Minikube Docker
+        run: |
+          eval $(minikube docker-env)
+          docker build \
+            -f server/Dockerfile \
+            --build-arg APP_VERSION=v1.0.0 \
+            --build-arg APP_ENV=blue \
+            -t ecommerce-app:v1.0.0-blue \
+            ./server
+
+      - name: Build Green image inside Minikube Docker
+        run: |
+          eval $(minikube docker-env)
+          docker build \
+            -f server/Dockerfile \
+            --build-arg APP_VERSION=v2.0.0 \
+            --build-arg APP_ENV=green \
+            -t ecommerce-app:v2.0.0-green \
+            ./server
+
+      - name: Deploy application manifests to Minikube
+        run: |
+          kubectl apply -f k8s/namespace.yaml
+          kubectl apply -f k8s/blue-deployment.yaml
+          kubectl apply -f k8s/green-deployment.yaml
+          kubectl apply -f k8s/service.yaml
+
+      - name: Wait for Blue and Green rollouts
+        run: |
+          kubectl rollout status deployment/ecommerce-blue -n ecommerce-bluegreen --timeout=300s
+          kubectl rollout status deployment/ecommerce-green -n ecommerce-bluegreen --timeout=300s
+
+      - name: Validate Blue route through Service
+        run: |
+          kubectl run minikube-curl-blue \
+            -n ecommerce-bluegreen \
+            --image=curlimages/curl:8.11.1 \
+            --restart=Never \
+            --rm -i \
+            --command -- sh -c '
+              response=$(curl -s http://ecommerce-service/api/v1/version)
+              echo "$response"
+              echo "$response" | grep "\"environment\":\"blue\""
+            '
+
+      - name: Switch Service selector to Green
+        run: |
+          kubectl patch service ecommerce-service \
+            -n ecommerce-bluegreen \
+            -p '{"spec":{"selector":{"app":"ecommerce","version":"green"}}}'
+
+      - name: Validate Green route through Service
+        run: |
+          kubectl run minikube-curl-green \
+            -n ecommerce-bluegreen \
+            --image=curlimages/curl:8.11.1 \
+            --restart=Never \
+            --rm -i \
+            --command -- sh -c '
+              response=$(curl -s http://ecommerce-service/api/v1/version)
+              echo "$response"
+              echo "$response" | grep "\"environment\":\"green\""
+            '
+
+      - name: Roll back Service selector to Blue
+        run: |
+          kubectl patch service ecommerce-service \
+            -n ecommerce-bluegreen \
+            -p '{"spec":{"selector":{"app":"ecommerce","version":"blue"}}}'
+
+      - name: Validate rollback to Blue
+        run: |
+          kubectl run minikube-curl-rollback \
+            -n ecommerce-bluegreen \
+            --image=curlimages/curl:8.11.1 \
+            --restart=Never \
+            --rm -i \
+            --command -- sh -c '
+              response=$(curl -s http://ecommerce-service/api/v1/version)
+              echo "$response"
+              echo "$response" | grep "\"environment\":\"blue\""
+            '

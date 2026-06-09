@@ -1,0 +1,135 @@
+name: Azure - Blue Green Deploy to AKS
+
+on:
+  workflow_dispatch:
+    inputs:
+      active_version:
+        description: Active version to route traffic to after deployment
+        required: true
+        default: blue
+        type: choice
+        options:
+          - blue
+          - green
+
+env:
+  RESOURCE_GROUP: rg-ecommerce-bluegreen-dev
+  LOCATION: uksouth
+  ACR_NAME: acrecommercebg8070
+  AKS_NAME: aks-ecommerce-bluegreen-dev
+  IMAGE_NAME: ecommerce-app
+  BLUE_TAG: v1.0.0-blue
+  GREEN_TAG: v2.0.0-green
+
+jobs:
+  build-push-deploy:
+    name: Build, push, deploy, and switch traffic
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+      - name: Azure login
+        uses: azure/login@v2
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Set ACR login server
+        run: |
+          ACR_LOGIN_SERVER=$(az acr show \
+            --name "$ACR_NAME" \
+            --resource-group "$RESOURCE_GROUP" \
+            --query loginServer \
+            --output tsv)
+          echo "ACR_LOGIN_SERVER=$ACR_LOGIN_SERVER" >> "$GITHUB_ENV"
+
+      - name: Login to ACR
+        run: az acr login --name "$ACR_NAME"
+
+      - name: Build Blue image
+        run: |
+          docker build \
+            -f server/Dockerfile \
+            --build-arg APP_VERSION=v1.0.0 \
+            --build-arg APP_ENV=blue \
+            -t "$ACR_LOGIN_SERVER/$IMAGE_NAME:$BLUE_TAG" \
+            ./server
+
+      - name: Build Green image
+        run: |
+          docker build \
+            -f server/Dockerfile \
+            --build-arg APP_VERSION=v2.0.0 \
+            --build-arg APP_ENV=green \
+            -t "$ACR_LOGIN_SERVER/$IMAGE_NAME:$GREEN_TAG" \
+            ./server
+
+      - name: Scan Blue image with Trivy
+        uses: aquasecurity/trivy-action@0.28.0
+        with:
+          image-ref: ${{ env.ACR_LOGIN_SERVER }}/${{ env.IMAGE_NAME }}:${{ env.BLUE_TAG }}
+          format: table
+          severity: CRITICAL,HIGH
+          exit-code: '1'
+          ignore-unfixed: true
+
+      - name: Scan Green image with Trivy
+        uses: aquasecurity/trivy-action@0.28.0
+        with:
+          image-ref: ${{ env.ACR_LOGIN_SERVER }}/${{ env.IMAGE_NAME }}:${{ env.GREEN_TAG }}
+          format: table
+          severity: CRITICAL,HIGH
+          exit-code: '1'
+          ignore-unfixed: true
+
+      - name: Push Blue image to ACR
+        run: docker push "$ACR_LOGIN_SERVER/$IMAGE_NAME:$BLUE_TAG"
+
+      - name: Push Green image to ACR
+        run: docker push "$ACR_LOGIN_SERVER/$IMAGE_NAME:$GREEN_TAG"
+
+      - name: Get AKS credentials
+        run: |
+          az aks get-credentials \
+            --resource-group "$RESOURCE_GROUP" \
+            --name "$AKS_NAME" \
+            --overwrite-existing
+
+      - name: Deploy Kubernetes manifests
+        run: |
+          kubectl apply -f k8s/aks/namespace.yaml
+          kubectl apply -f k8s/aks/postgres.yaml
+          kubectl apply -f k8s/aks/blue-deployment.yaml
+          kubectl apply -f k8s/aks/green-deployment.yaml
+          kubectl apply -f k8s/aks/service.yaml
+
+      - name: Wait for application rollouts
+        run: |
+          kubectl rollout status deployment/ecommerce-postgres -n ecommerce-bluegreen --timeout=300s
+          kubectl rollout status deployment/ecommerce-blue -n ecommerce-bluegreen --timeout=300s
+          kubectl rollout status deployment/ecommerce-green -n ecommerce-bluegreen --timeout=300s
+
+      - name: Switch active version
+        run: |
+          kubectl patch service ecommerce-service \
+            -n ecommerce-bluegreen \
+            -p "{\"spec\":{\"selector\":{\"app\":\"ecommerce\",\"version\":\"${{ github.event.inputs.active_version }}\"}}}"
+
+      - name: Validate active version
+        run: |
+          kubectl run gha-curl-validation \
+            -n ecommerce-bluegreen \
+            --image=curlimages/curl:8.11.1 \
+            --restart=Never \
+            --rm -i \
+            --command -- sh -c '
+              response=$(curl -s http://ecommerce-service/api/v1/version)
+              echo "$response"
+              echo "$response" | grep "\"environment\":\"${{ github.event.inputs.active_version }}\""
+            '
+
+      - name: Show final Kubernetes state
+        run: |
+          kubectl get all -n ecommerce-bluegreen -o wide
+          kubectl get endpoints ecommerce-service -n ecommerce-bluegreen -o wide

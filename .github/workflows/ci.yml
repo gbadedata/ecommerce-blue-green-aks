@@ -1,0 +1,87 @@
+name: CI - Build Test Docker Scan
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  backend-ci:
+    name: Backend test, build, Docker build, and Trivy scan
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: server
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: server/package-lock.json
+
+      - name: Install backend dependencies
+        run: npm ci
+
+      - name: Generate Prisma client
+        run: npx prisma generate
+
+      - name: Run backend tests
+        run: npm test
+
+      - name: Build backend
+        run: npm run build
+
+  docker-security:
+    name: Docker image build and Trivy scan
+    runs-on: ubuntu-latest
+    needs: backend-ci
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+      - name: Build Blue Docker image
+        run: |
+          docker build \
+            -f server/Dockerfile \
+            --build-arg APP_VERSION=v1.0.0 \
+            --build-arg APP_ENV=blue \
+            -t ecommerce-app:v1.0.0-blue \
+            ./server
+
+      - name: Build Green Docker image
+        run: |
+          docker build \
+            -f server/Dockerfile \
+            --build-arg APP_VERSION=v2.0.0 \
+            --build-arg APP_ENV=green \
+            -t ecommerce-app:v2.0.0-green \
+            ./server
+
+      - name: Scan Blue image with Trivy
+        uses: aquasecurity/trivy-action@0.28.0
+        with:
+          image-ref: ecommerce-app:v1.0.0-blue
+          format: table
+          severity: CRITICAL,HIGH
+          exit-code: '1'
+          ignore-unfixed: true
+
+      - name: Scan Green image with Trivy
+        uses: aquasecurity/trivy-action@0.28.0
+        with:
+          image-ref: ecommerce-app:v2.0.0-green
+          format: table
+          severity: CRITICAL,HIGH
+          exit-code: '1'
+          ignore-unfixed: true
