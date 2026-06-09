@@ -1,0 +1,2 @@
+NAME                CLASS   HOSTS                 ADDRESS          PORTS   AGE
+ecommerce-ingress   nginx   ecommerce-aks.local   131.145.127.56   80      104s

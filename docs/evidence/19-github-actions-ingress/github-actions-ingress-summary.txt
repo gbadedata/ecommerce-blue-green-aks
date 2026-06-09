@@ -1,0 +1,13 @@
+GitHub Actions public Ingress validation summary:
+
+- The Azure Blue-Green deployment workflow was updated to install NGINX Ingress Controller.
+- The workflow applied the ecommerce Ingress manifest.
+- The workflow waited for an Azure public LoadBalancer IP.
+- The workflow validated the public /api/v1/version endpoint through the Ingress route.
+- The workflow validated the public /api/v1/metrics endpoint through the Ingress route.
+- The active version selected by the workflow was Green.
+- The public endpoint returned version=v2.0.0 and environment=green.
+- The metrics endpoint returned ecommerce_app_info with version=v2.0.0 and environment=green.
+
+Final result:
+The GitHub Actions workflow successfully validated the full public AKS Ingress path.
