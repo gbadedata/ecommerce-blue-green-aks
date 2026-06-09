@@ -1,0 +1,15 @@
+GitHub Actions Minikube validation summary:
+
+- The Minikube Blue-Green validation workflow was added to the repository.
+- The workflow was manually triggered from GitHub Actions.
+- The workflow started a Minikube Kubernetes cluster inside the GitHub Actions runner.
+- The workflow built the Blue Docker image inside the Minikube Docker environment.
+- The workflow built the Green Docker image inside the Minikube Docker environment.
+- The workflow deployed the Kubernetes namespace, Blue deployment, Green deployment, and stable ecommerce-service.
+- The workflow waited for both Blue and Green rollouts to complete.
+- The workflow validated that the Service initially routed traffic to Blue.
+- The workflow patched the ecommerce-service selector to version=green.
+- The workflow validated that traffic moved to Green.
+- The workflow patched the ecommerce-service selector back to version=blue.
+- The workflow validated rollback to Blue.
+- Final result: GitHub Actions Minikube Blue-Green validation completed successfully.
