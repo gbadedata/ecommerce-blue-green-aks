@@ -129,6 +129,68 @@ jobs:
               echo "$response" | grep "\"environment\":\"${{ github.event.inputs.active_version }}\""
             '
 
+      - name: Install NGINX Ingress Controller
+        run: |
+          helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+          helm repo update
+
+          helm upgrade --install ingress-nginx ingress-nginx/ingress-nginx \
+            --namespace ingress-nginx \
+            --create-namespace \
+            --set controller.replicaCount=2 \
+            --set-string controller.service.annotations."service\\.beta\\.kubernetes\\.io/azure-load-balancer-health-probe-request-path"=/healthz
+
+      - name: Wait for NGINX Ingress Controller
+        run: |
+          kubectl rollout status deployment/ingress-nginx-controller \
+            -n ingress-nginx \
+            --timeout=300s
+
+          kubectl get pods -n ingress-nginx -o wide
+          kubectl get svc ingress-nginx-controller -n ingress-nginx -o wide
+
+      - name: Apply ecommerce Ingress
+        run: |
+          kubectl apply -f k8s/aks/ingress.yaml
+          kubectl get ingress ecommerce-ingress -n ecommerce-bluegreen -o wide
+          kubectl describe ingress ecommerce-ingress -n ecommerce-bluegreen
+
+      - name: Wait for Azure public LoadBalancer IP
+        run: |
+          for i in {1..30}; do
+            INGRESS_IP=$(kubectl get svc ingress-nginx-controller \
+              -n ingress-nginx \
+              -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
+
+            if [ -n "$INGRESS_IP" ]; then
+              echo "INGRESS_IP=$INGRESS_IP" >> "$GITHUB_ENV"
+              echo "Azure public LoadBalancer IP: $INGRESS_IP"
+              exit 0
+            fi
+
+            echo "Waiting for Azure public LoadBalancer IP..."
+            sleep 20
+          done
+
+          echo "Timed out waiting for Azure public LoadBalancer IP"
+          kubectl get svc ingress-nginx-controller -n ingress-nginx -o wide
+          exit 1
+
+      - name: Validate public Ingress route
+        run: |
+          echo "Testing public Ingress at http://$INGRESS_IP/api/v1/version"
+          response=$(curl -s --connect-timeout 20 \
+            -H "Host: ecommerce-aks.local" \
+            "http://$INGRESS_IP/api/v1/version")
+
+          echo "$response"
+          echo "$response" | grep "\"environment\":\"${{ github.event.inputs.active_version }}\""
+
+          echo "Testing public metrics endpoint"
+          curl -s --connect-timeout 20 \
+            -H "Host: ecommerce-aks.local" \
+            "http://$INGRESS_IP/api/v1/metrics" | grep ecommerce_app_info
+
       - name: Show final Kubernetes state
         run: |
           kubectl get all -n ecommerce-bluegreen -o wide
