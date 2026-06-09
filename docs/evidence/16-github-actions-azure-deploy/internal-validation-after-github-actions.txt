@@ -1,0 +1,7 @@
+=== Version endpoint after GitHub Actions deployment ===
+{"app":"ecommerce-app","version":"v2.0.0","environment":"green","status":"ok","timestamp":"2026-06-09T12:14:32.769Z"}
+=== Metrics app info after GitHub Actions deployment ===
+# HELP ecommerce_app_info Application version and environment information
+# TYPE ecommerce_app_info gauge
+ecommerce_app_info{app="ecommerce-app",version="v2.0.0",environment="green"} 1
+pod "gha-post-deploy-curl" deleted from ecommerce-bluegreen namespace

@@ -1,0 +1,21 @@
+GitHub Actions Azure deployment validation summary:
+
+- The Azure deployment workflow was manually triggered using workflow_dispatch.
+- The workflow completed successfully.
+- The workflow logged in to Azure using the AZURE_CREDENTIALS GitHub secret.
+- The workflow authenticated to Azure Container Registry.
+- The workflow built Blue and Green Docker images.
+- The workflow scanned both images with Trivy.
+- The workflow pushed both images to Azure Container Registry.
+- The workflow retrieved AKS credentials.
+- The workflow applied the AKS Kubernetes manifests.
+- The workflow waited for PostgreSQL, Blue, and Green rollouts.
+- The workflow patched ecommerce-service to route traffic to the selected active version.
+- The selected active version was Green.
+- Local post-deployment validation confirmed that ecommerce-service selected version=green.
+- The active Service endpoints pointed to Green pods.
+- The version endpoint returned version=v2.0.0 and environment=green.
+- The metrics endpoint returned ecommerce_app_info with version=v2.0.0 and environment=green.
+
+Final result:
+GitHub Actions successfully deployed and switched the Blue-Green workload on AKS.
